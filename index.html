@@ -3,253 +3,458 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Antonio Gilja Portfolio</title>
+<title>Antonio Gilja — Web designer &amp; front-end developer, Zagreb</title>
 <meta name="description" content="Antonio Gilja, web designer and front-end developer in Zagreb. Selected website design work.">
+<meta name="theme-color" content="#efebe3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
 <style>
-/* Layout: CV-style slate band header, then each case study as copy + a live viewer (desktop frame beside phone frame) */
 :root{
-  --bg:#f2f4f7; --surface:#ffffff; --band:#d6dfe7; --ink:#2f333b; --muted:#5f6d80; --line:#c9d2dc; --accent:#2e5478; --chrome:#e4e9ef;
-  --display:'Poppins',ui-sans-serif,system-ui,sans-serif;
-  --body:'Hanken Grotesk',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
-  --wrap:1160px;
+  --paper:#efebe3; --paper-2:#e5e0d5; --ink:#151413; --ink-2:#3a3732; --muted:#6f695f; --rule:#cbc4b5; --accent:#2337c6;
+  --sans:'Archivo',ui-sans-serif,system-ui,sans-serif;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --max:1320px; --gut:clamp(18px,3.4vw,48px);
+  --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  --ease:cubic-bezier(.2,.7,.1,1);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#14171c; --surface:#1c2027; --band:#232a34; --ink:#e5e8ed; --muted:#9aa6b6; --line:#323a46; --accent:#a9c2dd; --chrome:#262c35; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#14171c; --surface:#1c2027; --band:#232a34; --ink:#e5e8ed; --muted:#9aa6b6; --line:#323a46; --accent:#a9c2dd; --chrome:#262c35; color-scheme:dark}
-
-*{box-sizing:border-box}
-body{margin:0}img{max-width:100%}
+*,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;margin:0}
-.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
-h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
-p{margin:0}
-a{color:var(--accent);text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--paper) var(--noise);color:var(--ink);font:400 1.125rem/1.55 var(--serif);font-optical-sizing:auto;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+h1,h2,h3,p,ol,ul,dl,dd,figure{margin:0}
+ol,ul{padding:0;list-style:none}
+a{color:inherit}
+::selection{background:var(--accent);color:var(--paper)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+.k{font:600 .7rem/1.2 var(--sans);font-stretch:118%;letter-spacing:.16em;text-transform:uppercase}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.u{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;transition:background-size .5s var(--ease)}
+.u:hover{background-size:0 1px;background-position:100% 100%}
 
-/* header */
-.top{background:var(--band);padding-block:clamp(40px,7vw,88px) clamp(36px,6vw,72px)}
-.top .wrap{display:grid;gap:28px}
-.name{font-size:clamp(2.4rem,7vw,4.6rem);font-weight:700;letter-spacing:.06em}
-.role{font-family:var(--display);font-weight:300;letter-spacing:.22em;text-transform:uppercase;font-size:clamp(.8rem,1.6vw,1rem);color:var(--muted);margin-top:14px}
-.intro{max-width:60ch;font-size:1.15rem}
-.meta{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center}
-.meta span{display:inline-flex;gap:8px;align-items:center}
-.dot{width:8px;height:8px;border-radius:50%;background:#3f9d6a;flex:none}
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;border-bottom:1px solid transparent;transition:border-color .3s,background-color .3s}
+.mast.stuck{border-color:var(--rule);background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.mast .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:56px;gap:16px}
+.mast nav{display:flex;gap:clamp(14px,2.4vw,32px)}
+.mast nav a{text-decoration:none}
+.mast nav a:hover{color:var(--accent)}
+.mast .clock{justify-self:end;color:var(--muted);font-variant-numeric:tabular-nums}
+.mast .home{text-decoration:none;font-stretch:125%;font-weight:800;letter-spacing:.08em}
 
-/* case study */
-.case{padding-block:clamp(56px,8vw,104px);border-bottom:1px solid var(--line)}
-.case-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(24px,5vw,72px);align-items:start}
-.case h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:600;letter-spacing:.01em;margin-top:10px}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.tags span{font-family:var(--mono);font-size:.72rem;padding:4px 10px;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
-.brief{margin-top:22px;max-width:52ch}
-.did h3{font-size:1rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding-bottom:10px;border-bottom:1.5px solid var(--ink);margin-bottom:14px}
-.did ul{margin:0;padding-left:1.1em;display:grid;gap:9px}
-.did li::marker{color:var(--accent)}
+/* hero */
+.hero{padding-top:clamp(28px,5vw,64px);container-type:inline-size}
+.hero .row{display:flex;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--ink);color:var(--ink-2)}
+.name{font-family:var(--sans);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:16.7cqi;line-height:.8;letter-spacing:-.035em;margin:clamp(18px,3vw,36px) 0 0 -.04em}
+.name .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.name .ln>span{display:inline-block}
+.name .ln:last-child{text-align:right;margin-top:-.04em}
+.name em{font:italic 300 1.06em/1 var(--serif);text-transform:none;letter-spacing:-.045em;font-stretch:normal;color:var(--accent);padding-right:.04em}
+.lede{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px var(--gut);margin-top:clamp(36px,6vw,80px);padding-bottom:clamp(56px,9vw,120px)}
+.lede p{grid-column:1/span 7;font-size:clamp(1.45rem,2.55vw,2.35rem);line-height:1.18;font-weight:340;letter-spacing:-.012em;text-wrap:pretty}
+.lede p i{font-weight:300}
+.facts{grid-column:9/span 4;align-self:end;border-top:1px solid var(--ink)}
+.facts div{display:grid;grid-template-columns:7.5rem 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--rule);font-size:1rem;line-height:1.35}
+.facts dt{color:var(--muted);padding-top:.2em}
+.facts .live{display:inline-block;width:7px;height:7px;border-radius:50%;background:#2f9a5f;margin-right:8px;vertical-align:.12em;box-shadow:0 0 0 0 rgba(47,154,95,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 7px rgba(47,154,95,0)}100%{box-shadow:0 0 0 0 rgba(47,154,95,0)}}
 
-/* viewer */
-.viewer{margin-top:clamp(32px,5vw,52px)}
-.pages{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;align-items:center}
-.pages button{font:500 .9rem var(--body);color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:99px;padding:7px 16px;cursor:pointer}
-.pages button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.pages .hint{margin-left:auto}
-.screens{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:24px;align-items:end}
-.frame{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 18px 40px -24px rgba(20,30,45,.35)}
-.bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:var(--chrome);border-bottom:1px solid var(--line)}
-.bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
-.bar .label{margin-left:8px;text-transform:none;letter-spacing:.02em}
-.scroll{height:clamp(380px,52vw,600px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
-.scroll img{display:block;width:100%;height:auto}
-.phone{border-radius:28px;border:7px solid var(--ink);background:var(--ink);overflow:hidden;box-shadow:0 18px 40px -24px rgba(20,30,45,.4)}
-.phone .scroll{height:clamp(380px,52vw,520px);border-radius:20px;background:var(--surface)}
-.caps{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:24px;margin-top:10px}
-.phone-wrap.none{display:grid;place-items:center;height:100%;min-height:200px;border:1px dashed var(--line);border-radius:28px;text-align:center;padding:20px;color:var(--muted);font-size:.9rem}
+/* index */
+.index{padding-bottom:clamp(64px,10vw,140px)}
+.index header{display:flex;justify-content:space-between;align-items:end;padding-bottom:14px;border-bottom:1px solid var(--ink)}
+.index h2{font:inherit}
+.rows a{display:grid;grid-template-columns:4.5rem minmax(0,1.5fr) minmax(0,1fr) 4rem 2rem;align-items:baseline;gap:16px;padding:clamp(18px,2.4vw,30px) 0;border-bottom:1px solid var(--rule);text-decoration:none;position:relative}
+.rows .n{color:var(--muted)}
+.rows .t{font:800 clamp(2rem,4.6vw,4.2rem)/.9 var(--sans);font-stretch:125%;letter-spacing:-.03em;text-transform:uppercase;transition:transform .5s var(--ease),color .3s}
+.rows .d{color:var(--ink-2);font-size:1.05rem;line-height:1.35}
+.rows .y{color:var(--muted);font-variant-numeric:tabular-nums}
+.rows .arr{font-family:var(--sans);justify-self:end;transition:transform .5s var(--ease)}
+.rows a:hover .t{transform:translateX(.18em);color:var(--accent)}
+.rows a:hover .arr{transform:translateY(5px)}
+.peek{position:fixed;left:0;top:0;width:min(30vw,380px);aspect-ratio:4/3;pointer-events:none;z-index:30;overflow:hidden;opacity:0;transform:translate3d(-50%,-50%,0) scale(.86) rotate(-2deg);transition:opacity .25s,transform .45s var(--ease);box-shadow:0 30px 60px -20px rgba(0,0,0,.45)}
+.peek.on{opacity:1;transform:translate3d(-50%,-50%,0) scale(1) rotate(-2deg)}
+.peek img{width:100%;height:100%;object-fit:cover;object-position:top}
+
+/* case */
+.case{--brand:#1b1c1e;--hi:#a63e01}
+.case-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px var(--gut);padding-bottom:clamp(40px,6vw,72px)}
+.case-no{grid-column:1/span 2;font:italic 300 clamp(4rem,9vw,8.5rem)/.78 var(--serif);color:var(--hi);letter-spacing:-.04em}
+.case-title{grid-column:3/span 10}
+.case-title .k{color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
+.case h2{font:850 clamp(3rem,9vw,8rem)/.82 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.04em;margin-top:14px}
+.case h2 em{display:block;font:italic 300 .42em/1.1 var(--serif);text-transform:none;letter-spacing:-.01em;color:var(--ink-2);margin-top:.25em;font-stretch:normal}
+.brief{grid-column:3/span 6;font-size:clamp(1.15rem,1.5vw,1.35rem);line-height:1.45;text-wrap:pretty}
+.specs{grid-column:10/span 3;border-top:1px solid var(--ink);font-size:.95rem;line-height:1.35}
+.specs div{display:grid;grid-template-columns:5rem 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.specs dt{color:var(--muted);padding-top:.25em}
+.palette{grid-column:3/span 10;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border:1px solid var(--ink)}
+.palette li{padding:14px 16px 12px;min-height:118px;display:flex;flex-direction:column;justify-content:space-between;background:var(--c);color:var(--on,#fff);font:500 .9rem/1.3 var(--sans)}
+.palette li+li{border-left:1px solid var(--ink)}
+.palette code{font:500 .78rem var(--sans);font-stretch:110%;letter-spacing:.06em;opacity:.8}
+.palette small{display:block;font:italic 400 .9rem var(--serif);opacity:.8}
+
+/* plate */
+.plate{background:var(--brand) var(--noise);color:#f3f0ea;padding:clamp(28px,4vw,48px) 0 0;position:relative}
+.plate-bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;padding-bottom:22px}
+.tabs{display:flex;gap:4px;padding:4px;border:1px solid rgba(255,255,255,.18);border-radius:3px}
+.tabs button{font:600 .82rem/1 var(--sans);font-stretch:110%;letter-spacing:.02em;color:inherit;background:transparent;border:0;padding:10px 14px;border-radius:2px;cursor:pointer;opacity:.7;transition:background .3s,color .3s,opacity .3s}
+.tabs button:hover{opacity:1}
+.tabs button[aria-pressed="true"]{background:#f3f0ea;color:var(--brand);opacity:1}
+.plate-bar .hint{opacity:.6;margin-left:auto}
+.plate-bar .open{font:500 .9rem var(--sans);text-decoration:none}
+.plate-bar .open:hover{color:var(--hi);filter:brightness(1.6)}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,22vw,292px);gap:0 clamp(24px,3vw,40px);align-items:end}
+.desk{position:relative}
+.screen{height:clamp(420px,56vw,680px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;background:#fff;border-radius:4px 4px 0 0}
+.screen::-webkit-scrollbar{display:none}
+.screen img{width:100%;height:auto;transition:opacity .35s}
+.screen img.swap{opacity:0}
+.meter{position:absolute;right:-14px;top:0;bottom:0;width:2px;background:rgba(255,255,255,.14)}
+.meter i{position:absolute;left:0;top:0;width:100%;height:100%;background:var(--hi);filter:brightness(1.35);transform-origin:top;transform:scaleY(0)}
+.mob{margin-bottom:-64px;position:relative;z-index:2}
+.device{background:#0c0c0d;padding:8px;border-radius:30px;box-shadow:0 40px 70px -30px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.08) inset}
+.device .screen{height:clamp(440px,44vw,560px);border-radius:22px}
+.nomob{display:grid;place-items:center;text-align:center;min-height:300px;border:1px dashed rgba(255,255,255,.3);border-radius:30px;padding:24px;font:italic 400 1.05rem/1.4 var(--serif);opacity:.8;margin-bottom:64px}
+figcaption{display:flex;justify-content:space-between;gap:12px;padding:12px 0 18px;color:rgba(243,240,234,.66);font-size:.95rem}
+figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16em;text-transform:uppercase;color:#f3f0ea}
+.mob figcaption{position:absolute;top:100%;left:0;right:0;color:var(--muted)}
+.mob figcaption b{color:var(--ink)}
+
+/* what I did */
+.did{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px var(--gut);padding-block:clamp(96px,11vw,150px) clamp(80px,11vw,150px)}
+.did h3{grid-column:1/span 2;font-weight:400}
+.did ol{grid-column:3/span 10;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--gut);counter-reset:d}
+.did li{counter-increment:d;display:grid;grid-template-columns:2.6rem 1fr;padding:16px 0 18px;border-top:1px solid var(--rule);line-height:1.45;text-wrap:pretty}
+.did li::before{content:counter(d,decimal-leading-zero);font:600 .72rem/2.2 var(--sans);font-stretch:118%;color:var(--hi)}
+.did li:first-child{grid-column:1/-1;font-size:clamp(1.2rem,1.7vw,1.45rem);line-height:1.35;border-top-color:var(--ink);padding-bottom:26px}
 
 /* process */
-.process{padding-block:clamp(56px,8vw,104px)}
-.process h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600}
-.steps{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;counter-reset:s}
-.steps li{counter-increment:s;border-top:1.5px solid var(--ink);padding-top:14px}
-.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:.75rem;color:var(--muted);display:block;margin-bottom:6px}
-.steps b{font-family:var(--display);font-weight:600;display:block;margin-bottom:4px}
-.steps p{font-size:.95rem;color:var(--muted)}
-.tools{margin-top:36px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.95rem}
-.tools b{font-weight:600}
+.process{background:var(--paper-2) var(--noise);padding-block:clamp(72px,10vw,140px);border-top:1px solid var(--rule)}
+.process .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px var(--gut)}
+.process-head{grid-column:1/span 4;grid-row:1/span 2;align-self:start;position:sticky;top:96px}
+.process-head h2{font:850 clamp(2.2rem,4.6vw,4rem)/.88 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.035em;margin-top:14px}
+.process-head h2 em{font:italic 300 1.05em/1 var(--serif);text-transform:none;letter-spacing:-.03em;color:var(--accent);font-stretch:normal}
+.steps{grid-column:6/span 7;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:3.4rem 9.5rem 1fr;gap:12px;align-items:baseline;padding:20px 0;border-top:1px solid var(--ink)}
+.steps li:last-child{border-bottom:1px solid var(--ink)}
+.steps li::before{content:counter(s,decimal-leading-zero);font:italic 300 2rem/1 var(--serif);color:var(--accent)}
+.steps b{font:700 1rem/1.3 var(--sans);font-stretch:112%;letter-spacing:.01em}
+.steps p{color:var(--ink-2);line-height:1.45}
+.tools{grid-column:6/span 7;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:12px}
+.tools dt{color:var(--muted);margin-bottom:6px}
+.tools dd{font-size:1rem;line-height:1.4}
 
 /* contact */
-.contact{background:var(--band);padding-block:clamp(48px,7vw,80px)}
-.contact .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:end}
-.contact h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:600}
-.mail{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
-.mail code{font-family:var(--mono);font-size:1.05rem;user-select:all}
-.mail button{font:500 .85rem var(--body);background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:7px 14px;cursor:pointer}
-.links{display:grid;gap:6px;justify-items:end}
+.contact{background:var(--ink) var(--noise);color:var(--paper);padding-block:clamp(72px,11vw,150px) 28px}
+.contact .k{color:#a39d92}
+.contact h2{font:850 clamp(2.6rem,8.4vw,7.6rem)/.84 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.04em;margin-top:18px;max-width:12ch}
+.contact h2 em{font:italic 300 1.04em/1 var(--serif);text-transform:none;letter-spacing:-.04em;color:#8e9bff;font-stretch:normal}
+.mailrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px 28px;margin-top:clamp(36px,5vw,64px);padding-top:22px;border-top:1px solid #3a3732}
+.mail{font:italic 300 clamp(1.8rem,5vw,4.2rem)/1.1 var(--serif);letter-spacing:-.02em;word-break:break-all}
+.mail:hover{color:#8e9bff}
+.copy{font:600 .72rem/1 var(--sans);font-stretch:118%;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);background:transparent;border:1px solid #5a564f;border-radius:2px;padding:12px 16px;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.copy:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:clamp(64px,9vw,120px);padding-top:18px;border-top:1px solid #3a3732;color:#a39d92}
+.foot a{color:var(--paper)}
 
-@media (max-width:860px){
-  .case-head{grid-template-columns:minmax(0,1fr)}
-  .screens,.caps{grid-template-columns:minmax(0,1fr) 200px;gap:16px}
-  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .links{justify-items:start}
+/* motion */
+@media (prefers-reduced-motion:no-preference){
+  .js [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .js [data-r].in{opacity:1;transform:none}
+  .js .name .ln>span{transform:translateY(105%);transition:transform 1.1s var(--ease)}
+  .js .name.in .ln>span{transform:none}
+  .js .name.in .ln:last-child>span{transition-delay:.12s}
+  .screen{scroll-behavior:smooth}
 }
-@media (max-width:600px){
-  .screens{grid-template-columns:minmax(0,1fr)}
-  .frame .scroll{height:300px}
-  .phone-col{max-width:260px;width:100%;justify-self:center}
-  .caps{display:none}
-  .pages .hint{margin-left:0;width:100%}
-  .steps{grid-template-columns:minmax(0,1fr)}
+@media (prefers-reduced-motion:reduce){.facts .live{animation:none}}
+
+/* responsive */
+@media (max-width:980px){
+  .lede p,.facts{grid-column:1/-1}
+  .facts{max-width:520px}
+  .case-no{grid-column:1/-1}
+  .case-title,.brief,.specs,.palette{grid-column:1/-1}
+  .specs{max-width:520px}
+  .did h3,.did ol{grid-column:1/-1}
+  .process-head,.steps,.tools{grid-column:1/-1}
+  .process-head{grid-row:auto;position:static}
+  .rows a{grid-template-columns:3rem minmax(0,1fr) 3.5rem 1.5rem}
+  .rows .d{grid-column:2/-1;grid-row:2}
 }
-@media (prefers-reduced-motion:no-preference){.scroll{scroll-behavior:smooth}}
+@media (max-width:700px){
+  .mast nav{display:none}
+  .mast .wrap{grid-template-columns:1fr auto}
+  .hero .row{flex-direction:column;gap:4px}
+  .name .ln:last-child{text-align:left}
+  .stage{grid-template-columns:minmax(0,1fr)}
+  .meter{display:none}
+  .screen{height:62vh}
+  .mob{width:min(270px,78vw);justify-self:center;margin:24px 0 8px}
+  .mob figcaption{position:static;color:rgba(243,240,234,.66)}
+  .mob figcaption b{color:#f3f0ea}
+  .nomob{margin-bottom:24px;min-height:160px}
+  .did{padding-top:56px}
+  .plate-bar .hint{margin-left:0;width:100%}
+  .did ol{grid-template-columns:minmax(0,1fr)}
+  .steps li{grid-template-columns:2.8rem 1fr}
+  .steps p{grid-column:2}
+  .tools{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .peek{display:none}
+}
 </style>
 </head>
 <body>
 
-<header class="top">
+<header class="mast" id="top">
   <div class="wrap">
-    <div>
-      <h1 class="name">ANTONIO GILJA</h1>
-      <p class="role">Web designer &amp; front-end developer</p>
-    </div>
-    <p class="intro">I design websites for small and medium-sized businesses in Figma and build them in HTML, CSS and React. I’ve been writing HTML and CSS since 2018, and today I take client sites from the first brief to launch at Stack-Wizard in Zagreb.</p>
-    <div class="meta">
-      <span><i class="dot" aria-hidden="true"></i>Open to remote work · 10–20 h/week</span>
-      <span class="label">Zagreb, Croatia · CET</span>
-      <a href="#contact">Get in touch</a>
-    </div>
+    <a class="home k" href="#top">A. Gilja</a>
+    <nav class="k" aria-label="Sections"><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    <span class="clock k" aria-hidden="true">Zagreb <span class="js-time">—</span></span>
   </div>
 </header>
 
 <main>
-  <section class="case" id="ltg" aria-labelledby="ltg-title">
-    <div class="wrap">
-      <div class="case-head">
-        <div>
-          <p class="label">Case study · 2026</p>
-          <h2 id="ltg-title">LTG, general contractor</h2>
-          <div class="tags"><span>Website design</span><span>Figma</span><span>Desktop + mobile</span><span>Construction</span></div>
-          <p class="brief">LTG is a Croatian construction company with more than 30 years of work, from shell construction and facades to turnkey handover. They wanted one site that shows the full range of what they do, proves they can be trusted with large buildings, and turns visitors into quote requests.</p>
-        </div>
-        <div class="did">
-          <h3>What I did</h3>
-          <ul>
-            <li>Built the homepage around their promise of one contractor and one point of responsibility, with a dusk site photo and three proof points right in the hero.</li>
-            <li>Sorted six trades into photo cards so each service leads to its own page.</li>
-            <li>Designed the facade page as the template for every service page: a comparison of ETICS, ventilated and aluminium-glass systems, reasons to choose LTG, references, FAQ and a short quote form.</li>
-            <li>Took the palette from the job site itself: charcoal, concrete grey and a rust orange used only for calls to action.</li>
-            <li>Laid out mobile separately: services in a two-column grid, projects stacked, a one-tap menu and the same form at the end of every page.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="viewer" data-case="ltg">
-        <div class="pages" role="group" aria-label="LTG pages">
-          <button type="button" aria-pressed="true" data-d="img/ltg-home-desktop.jpg" data-m="img/ltg-home-mobile.jpg" data-n="Homepage">Homepage</button>
-          <button type="button" aria-pressed="false" data-d="img/ltg-facades-desktop.jpg" data-m="img/ltg-facades-mobile.jpg" data-n="Facade services">Facade services</button>
-          <span class="label hint">Scroll inside the screens to see the full page</span>
-        </div>
-        <div class="screens">
-          <div class="frame"><div class="bar"><i></i><i></i><i></i><span class="label js-url">ltg — Homepage</span></div>
-            <div class="scroll" tabindex="0" aria-label="Desktop design, scrollable"><img class="js-d" src="img/ltg-home-desktop.jpg" alt="LTG homepage, desktop design" loading="lazy" width="1200" height="3753"></div></div>
-          <div class="phone-col"><div class="phone"><div class="scroll" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/ltg-home-mobile.jpg" alt="LTG homepage, mobile design" loading="lazy" width="520" height="3682"></div></div></div>
-        </div>
-        <div class="caps"><span class="label">Desktop</span><span class="label">Mobile</span></div>
-      </div>
+  <section class="hero wrap" aria-labelledby="name">
+    <div class="row k"><span>Web designer &amp; front-end developer</span><span>Zagreb, Croatia — Portfolio 2026</span></div>
+    <h1 class="name" id="name"><span class="ln"><span>Antonio</span></span><span class="ln"><span><em>Gilja</em></span></span></h1>
+    <div class="lede">
+      <p data-r>I design websites for small and medium-sized businesses in Figma and build them in HTML, CSS and React — <i>taking client sites from the first brief to launch.</i></p>
+      <dl class="facts" data-r>
+        <div><dt class="k">Now</dt><dd>At Stack-Wizard, Zagreb</dd></div>
+        <div><dt class="k">Since</dt><dd>Writing HTML &amp; CSS since 2018</dd></div>
+        <div><dt class="k">Available</dt><dd><i class="live" aria-hidden="true"></i>Open to remote work, 10–20&nbsp;h/week</dd></div>
+        <div><dt class="k">Time zone</dt><dd>Central European Time</dd></div>
+      </dl>
     </div>
   </section>
 
-  <section class="case" id="stem" aria-labelledby="stem-title">
-    <div class="wrap">
-      <div class="case-head">
-        <div>
-          <p class="label">Case study · 2026</p>
-          <h2 id="stem-title">STEM-online, tutoring</h2>
-          <div class="tags"><span>Website design</span><span>Figma</span><span>Landing page system</span><span>Education</span></div>
-          <p class="brief">STEM-online connects school and university students with tutors from Zagreb’s top technical faculties, in person or online. They needed pages that answer local searches like “maths tutoring in Zagreb” and make booking a tutor take as few steps as possible.</p>
-        </div>
-        <div class="did">
-          <h3>What I did</h3>
-          <ul>
-            <li>Designed one landing page template that works for every subject and city combination, with breadcrumbs that mirror the URL path for search engines.</li>
-            <li>Gave each city a local hero: the Zagreb coat of arms surrounded by maths symbols, in the brand’s violet on deep navy.</li>
-            <li>Designed tutor cards with faculty and neighbourhood tags, so a student can judge a match at a glance.</li>
-            <li>Built the Croatia overview page around a city picker and a four-step booking explainer for in-person and online lessons.</li>
-            <li>Kept the tutor grid at two columns on mobile and moved the neighbourhood map below the booking button.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="viewer" data-case="stem">
-        <div class="pages" role="group" aria-label="STEM-online pages">
-          <button type="button" aria-pressed="true" data-d="img/stem-zagreb-desktop.jpg" data-m="img/stem-zagreb-mobile.jpg" data-n="Maths tutoring, Zagreb">Maths tutoring, Zagreb</button>
-          <button type="button" aria-pressed="false" data-d="img/stem-croatia-desktop.jpg" data-m="" data-n="Tutoring across Croatia">Tutoring across Croatia</button>
-          <span class="label hint">Scroll inside the screens to see the full page</span>
-        </div>
-        <div class="screens">
-          <div class="frame"><div class="bar"><i></i><i></i><i></i><span class="label js-url">stem-online — Maths tutoring, Zagreb</span></div>
-            <div class="scroll" tabindex="0" aria-label="Desktop design, scrollable"><img class="js-d" src="img/stem-zagreb-desktop.jpg" alt="STEM-online maths tutoring in Zagreb page, desktop design" loading="lazy" width="1200" height="2096"></div></div>
-          <div class="phone-col"><div class="phone"><div class="scroll" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/stem-zagreb-mobile.jpg" alt="STEM-online maths tutoring in Zagreb page, mobile design" loading="lazy" width="520" height="2236"></div></div>
-            <div class="phone-wrap none js-none" hidden>Desktop design only for this page</div></div>
-        </div>
-        <div class="caps"><span class="label">Desktop</span><span class="label">Mobile</span></div>
-      </div>
-    </div>
+  <section class="index wrap" id="work" aria-labelledby="work-title">
+    <header class="k"><h2 id="work-title">Selected work</h2><span>02 projects</span></header>
+    <ol class="rows">
+      <li><a href="#ltg" data-peek="img/ltg-home-desktop.jpg"><span class="n k">01</span><span class="t">LTG</span><span class="d">General contractor — website design for desktop and mobile</span><span class="y k">2026</span><span class="arr" aria-hidden="true">↓</span></a></li>
+      <li><a href="#stem" data-peek="img/stem-zagreb-desktop.jpg"><span class="n k">02</span><span class="t">STEM-online</span><span class="d">Tutoring — a landing page system for local search</span><span class="y k">2026</span><span class="arr" aria-hidden="true">↓</span></a></li>
+    </ol>
   </section>
 
-  <section class="process" aria-labelledby="process-title">
+  <article class="case" id="ltg" aria-labelledby="ltg-title" style="--brand:#1b1c1e;--hi:#a63e01">
+    <div class="wrap case-head">
+      <div class="case-no" aria-hidden="true" data-r>01</div>
+      <div class="case-title" data-r>
+        <p class="k"><span>Case study</span><span>2026</span><span>Construction</span></p>
+        <h2 id="ltg-title">LTG <em>a general contractor, built to earn quote requests</em></h2>
+      </div>
+      <p class="brief" data-r>LTG is a Croatian construction company with more than 30 years of work, from shell construction and facades to turnkey handover. They wanted one site that shows the full range of what they do, proves they can be trusted with large buildings, and turns visitors into quote requests.</p>
+      <dl class="specs" data-r>
+        <div><dt class="k">Role</dt><dd>Website design</dd></div>
+        <div><dt class="k">Tool</dt><dd>Figma</dd></div>
+        <div><dt class="k">Scope</dt><dd>Desktop + mobile</dd></div>
+        <div><dt class="k">Shown</dt><dd>Homepage, Facade services</dd></div>
+      </dl>
+      <ul class="palette" aria-label="LTG colour palette, sampled from the design" data-r>
+        <li style="--c:#1b1c1e"><span>Charcoal<small>footer, type</small></span><code>#1B1C1E</code></li>
+        <li style="--c:#9a9a9c"><span>Concrete<small>surfaces, photos</small></span><code>#9A9A9C</code></li>
+        <li style="--c:#a63e01"><span>Rust<small>calls to action only</small></span><code>#A63E01</code></li>
+        <li style="--c:#f9f9fb;--on:#1b1c1e"><span>Site white<small>page ground</small></span><code>#F9F9FB</code></li>
+      </ul>
+    </div>
+
+    <div class="plate viewer">
+      <div class="wrap">
+        <div class="plate-bar">
+          <div class="tabs" role="group" aria-label="LTG pages">
+            <button type="button" aria-pressed="true" data-d="img/ltg-home-desktop.jpg" data-m="img/ltg-home-mobile.jpg" data-n="Homepage">Homepage</button>
+            <button type="button" aria-pressed="false" data-d="img/ltg-facades-desktop.jpg" data-m="img/ltg-facades-mobile.jpg" data-n="Facade services">Facade services</button>
+          </div>
+          <span class="hint k">Scroll inside the screens</span>
+          <a class="open u js-open" href="img/ltg-home-desktop.jpg" target="_blank" rel="noopener">Open full page ↗</a>
+        </div>
+        <div class="stage">
+          <figure class="desk">
+            <div class="screen" tabindex="0" aria-label="Desktop design, scrollable"><img class="js-d" src="img/ltg-home-desktop.jpg" alt="LTG Homepage, desktop design" loading="lazy" width="1200" height="3753"></div>
+            <div class="meter" aria-hidden="true"><i></i></div>
+            <figcaption><b>Fig. 1a — Desktop</b><span class="js-cap">Homepage · 1200 px</span></figcaption>
+          </figure>
+          <figure class="mob">
+            <div class="device js-phone"><div class="screen" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/ltg-home-mobile.jpg" alt="LTG Homepage, mobile design" loading="lazy" width="520" height="3682"></div></div>
+            <figcaption class="js-mcap"><b>Fig. 1b — Mobile</b><span>Designed separately</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap did">
+      <h3 class="k" data-r>What I did</h3>
+      <ol data-r>
+        <li>Built the homepage around their promise of one contractor and one point of responsibility, with a dusk site photo and three proof points right in the hero.</li>
+        <li>Sorted six trades into photo cards so each service leads to its own page.</li>
+        <li>Designed the facade page as the template for every service page: a comparison of ETICS, ventilated and aluminium-glass systems, reasons to choose LTG, references, FAQ and a short quote form.</li>
+        <li>Took the palette from the job site itself: charcoal, concrete grey and a rust orange used only for calls to action.</li>
+        <li>Laid out mobile separately: services in a two-column grid, projects stacked, a one-tap menu and the same form at the end of every page.</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="case" id="stem" aria-labelledby="stem-title" style="--brand:#191a2e;--hi:#7a3fe0">
+    <div class="wrap case-head">
+      <div class="case-no" aria-hidden="true" data-r>02</div>
+      <div class="case-title" data-r>
+        <p class="k"><span>Case study</span><span>2026</span><span>Education</span></p>
+        <h2 id="stem-title">STEM-online <em>tutoring pages that answer local searches</em></h2>
+      </div>
+      <p class="brief" data-r>STEM-online connects school and university students with tutors from Zagreb’s top technical faculties, in person or online. They needed pages that answer local searches like “maths tutoring in Zagreb” and make booking a tutor take as few steps as possible.</p>
+      <dl class="specs" data-r>
+        <div><dt class="k">Role</dt><dd>Website design</dd></div>
+        <div><dt class="k">Tool</dt><dd>Figma</dd></div>
+        <div><dt class="k">Scope</dt><dd>Landing page system</dd></div>
+        <div><dt class="k">Shown</dt><dd>Maths tutoring, Zagreb; Tutoring across Croatia</dd></div>
+      </dl>
+      <ul class="palette" aria-label="STEM-online colour palette, sampled from the design" data-r>
+        <li style="--c:#191a2e"><span>Deep navy<small>hero ground</small></span><code>#191A2E</code></li>
+        <li style="--c:#5d27b3"><span>Brand violet<small>booking band</small></span><code>#5D27B3</code></li>
+        <li style="--c:#a656f3"><span>Bright violet<small>city name, highlights</small></span><code>#A656F3</code></li>
+        <li style="--c:#e1f3e9;--on:#191a2e"><span>Mint<small>neighbourhood tags</small></span><code>#E1F3E9</code></li>
+      </ul>
+    </div>
+
+    <div class="plate viewer">
+      <div class="wrap">
+        <div class="plate-bar">
+          <div class="tabs" role="group" aria-label="STEM-online pages">
+            <button type="button" aria-pressed="true" data-d="img/stem-zagreb-desktop.jpg" data-m="img/stem-zagreb-mobile.jpg" data-n="Maths tutoring, Zagreb">Maths tutoring, Zagreb</button>
+            <button type="button" aria-pressed="false" data-d="img/stem-croatia-desktop.jpg" data-m="" data-n="Tutoring across Croatia">Tutoring across Croatia</button>
+          </div>
+          <span class="hint k">Scroll inside the screens</span>
+          <a class="open u js-open" href="img/stem-zagreb-desktop.jpg" target="_blank" rel="noopener">Open full page ↗</a>
+        </div>
+        <div class="stage">
+          <figure class="desk">
+            <div class="screen" tabindex="0" aria-label="Desktop design, scrollable"><img class="js-d" src="img/stem-zagreb-desktop.jpg" alt="STEM-online Maths tutoring, Zagreb, desktop design" loading="lazy" width="1200" height="2096"></div>
+            <div class="meter" aria-hidden="true"><i></i></div>
+            <figcaption><b>Fig. 2a — Desktop</b><span class="js-cap">Maths tutoring, Zagreb · 1200 px</span></figcaption>
+          </figure>
+          <figure class="mob">
+            <div class="device js-phone"><div class="screen" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/stem-zagreb-mobile.jpg" alt="STEM-online Maths tutoring, Zagreb, mobile design" loading="lazy" width="520" height="2236"></div></div>
+            <div class="nomob js-none" hidden>Desktop design only for this page</div>
+            <figcaption class="js-mcap"><b>Fig. 2b — Mobile</b><span>Two-column tutor grid</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap did">
+      <h3 class="k" data-r>What I did</h3>
+      <ol data-r>
+        <li>Designed one landing page template that works for every subject and city combination, with breadcrumbs that mirror the URL path for search engines.</li>
+        <li>Gave each city a local hero: the Zagreb coat of arms surrounded by maths symbols, in the brand’s violet on deep navy.</li>
+        <li>Designed tutor cards with faculty and neighbourhood tags, so a student can judge a match at a glance.</li>
+        <li>Built the Croatia overview page around a city picker and a four-step booking explainer for in-person and online lessons.</li>
+        <li>Kept the tutor grid at two columns on mobile and moved the neighbourhood map below the booking button.</li>
+      </ol>
+    </div>
+  </article>
+
+  <section class="process" id="process" aria-labelledby="process-title">
     <div class="wrap">
-      <h2 id="process-title">How I take a site from brief to launch</h2>
-      <ol class="steps">
+      <div class="process-head" data-r>
+        <p class="k">Process</p>
+        <h2 id="process-title">From brief <em>to</em> launch</h2>
+      </div>
+      <ol class="steps" data-r>
         <li><b>Brief</b><p>Talk with the client about the business, the audience and what the site has to achieve.</p></li>
         <li><b>Structure</b><p>Turn their raw content into a sitemap and a clear order of sections for each page.</p></li>
         <li><b>Design</b><p>Design desktop and mobile in Figma, present it, and iterate through feedback rounds.</p></li>
         <li><b>Build</b><p>Build in HTML, CSS and React, matching the design down to spacing and type.</p></li>
         <li><b>Test &amp; launch</b><p>Check across devices and browsers, tune SEO and load speed, deploy, then maintain.</p></li>
       </ol>
-      <p class="tools"><span><b>Design</b> Figma, Photoshop, Illustrator</span><span><b>Front-end</b> HTML5, CSS3, JavaScript, React</span><span><b>Motion</b> After Effects</span><span><b>Workflow</b> Git &amp; GitHub</span></p>
+      <dl class="tools" data-r>
+        <div><dt class="k">Design</dt><dd>Figma, Photoshop, Illustrator</dd></div>
+        <div><dt class="k">Front-end</dt><dd>HTML5, CSS3, JavaScript, React</dd></div>
+        <div><dt class="k">Motion</dt><dd>After Effects</dd></div>
+        <div><dt class="k">Workflow</dt><dd>Git &amp; GitHub</dd></div>
+      </dl>
     </div>
   </section>
 </main>
 
 <footer class="contact" id="contact">
   <div class="wrap">
-    <div>
-      <p class="label">Contact</p>
-      <h2>Let’s build your next site</h2>
-      <div class="mail"><code id="email">antgilja@gmail.com</code><button type="button" id="copy">Copy email</button></div>
+    <p class="k">Contact</p>
+    <h2 data-r>Let’s build your <em>next</em> site</h2>
+    <div class="mailrow" data-r>
+      <a class="mail u" id="email" href="mailto:antgilja@gmail.com">antgilja@gmail.com</a>
+      <button type="button" class="copy" id="copy">Copy email</button>
     </div>
-    <div class="links">
-      <a href="https://github.com/giljant" target="_blank" rel="noopener">github.com/giljant</a>
-      <span class="label">© 2026 Antonio Gilja</span>
+    <div class="foot k">
+      <a class="u" href="https://github.com/giljant" target="_blank" rel="noopener">github.com/giljant</a>
+      <span>Zagreb, Croatia</span>
+      <span>© 2026 Antonio Gilja</span>
     </div>
   </div>
 </footer>
 
+<div class="peek" aria-hidden="true"><img alt=""></div>
+
 <script>
+document.documentElement.classList.add('js');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('[data-r]').forEach(el=>io.observe(el));
+requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelector('.name').classList.add('in')));
+
+/* masthead rule + Zagreb clock */
+const mast=document.querySelector('.mast');
+addEventListener('scroll',()=>mast.classList.toggle('stuck',scrollY>8),{passive:true});
+const t=document.querySelector('.js-time');
+const fmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Zagreb',hour:'2-digit',minute:'2-digit'});
+const tick=()=>{t.textContent=fmt.format(new Date())};tick();setInterval(tick,15000);
+
+/* case viewers */
+const meter=s=>{const i=s.closest('.desk')?.querySelector('.meter i');if(!i)return;
+  const f=()=>{const m=s.scrollHeight-s.clientHeight;i.style.transform='scaleY('+(m>0?s.scrollTop/m:0)+')'};
+  s.addEventListener('scroll',()=>requestAnimationFrame(f),{passive:true});return f};
 document.querySelectorAll('.viewer').forEach(v=>{
-  const btns=v.querySelectorAll('.pages button');
-  const d=v.querySelector('.js-d'), m=v.querySelector('.js-m'), url=v.querySelector('.js-url');
-  const none=v.querySelector('.js-none'), phone=v.querySelector('.phone'), caps=v.querySelector('.caps .label:last-child');
-  const site=url.textContent.split(' — ')[0];
+  const btns=v.querySelectorAll('.tabs button');
+  const d=v.querySelector('.js-d'),m=v.querySelector('.js-m'),cap=v.querySelector('.js-cap'),open=v.querySelector('.js-open');
+  const phone=v.querySelector('.js-phone'),none=v.querySelector('.js-none'),mcap=v.querySelector('.js-mcap');
+  const site=v.closest('.case').querySelector('h2').firstChild.textContent.trim();
+  const upd=meter(d.closest('.screen'));
+  const swap=(img,src,alt)=>{img.classList.add('swap');const go=()=>{img.src=src;img.alt=alt;img.closest('.screen').scrollTop=0;upd&&upd()};
+    reduce?go():setTimeout(go,180)};
+  d.addEventListener('load',()=>{d.classList.remove('swap');upd&&upd()});
+  m.addEventListener('load',()=>m.classList.remove('swap'));
   btns.forEach(b=>b.addEventListener('click',()=>{
+    if(b.getAttribute('aria-pressed')==='true')return;
     btns.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
-    d.src=b.dataset.d; d.alt=b.dataset.n+' page, desktop design';
-    d.closest('.scroll').scrollTop=0;
-    url.textContent=site+' — '+b.dataset.n;
+    swap(d,b.dataset.d,site+' '+b.dataset.n+', desktop design');
+    cap.textContent=b.dataset.n+' · 1200 px'; open.href=b.dataset.d;
     const hasM=!!b.dataset.m;
-    phone.hidden=!hasM; if(none) none.hidden=hasM; if(caps) caps.style.visibility=hasM?'visible':'hidden';
-    if(hasM){m.src=b.dataset.m; m.alt=b.dataset.n+' page, mobile design'; m.closest('.scroll').scrollTop=0;}
+    phone.hidden=!hasM; if(none)none.hidden=hasM; if(mcap)mcap.hidden=!hasM;
+    if(hasM)swap(m,b.dataset.m,site+' '+b.dataset.n+', mobile design');
   }));
 });
+
+/* index hover preview */
+const peek=document.querySelector('.peek'),pimg=peek.querySelector('img');
+if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+  let x=0,y=0,px=0,py=0,raf=0;
+  const loop=()=>{px+=(x-px)*.18;py+=(y-py)*.18;peek.style.left=px+'px';peek.style.top=py+'px';raf=Math.abs(x-px)+Math.abs(y-py)>.3?requestAnimationFrame(loop):0};
+  document.querySelectorAll('[data-peek]').forEach(a=>{
+    a.addEventListener('mouseenter',e=>{pimg.src=a.dataset.peek;px=x=e.clientX;py=y=e.clientY;loop();peek.classList.add('on')});
+    a.addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;if(!raf)raf=requestAnimationFrame(loop)});
+    a.addEventListener('mouseleave',()=>peek.classList.remove('on'));
+  });
+}
+
+/* copy email */
 document.getElementById('copy').addEventListener('click',e=>{
-  const t=document.getElementById('email').textContent, b=e.currentTarget;
+  const b=e.currentTarget,el=document.getElementById('email'),txt=el.textContent;
   const done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy email',1600)};
-  const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('email'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl+C'};
-  try{navigator.clipboard.writeText(t).then(done,sel)}catch(_){sel()}
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected — press Ctrl+C'};
+  try{navigator.clipboard.writeText(txt).then(done,sel)}catch(_){sel()}
 });
 </script>
 </body>

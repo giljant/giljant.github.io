@@ -238,26 +238,6 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 /* contact head + back to top */
 .contact-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
 
-/* custom cursor (fine pointers only, enabled by JS) */
-.cur{display:none}
-.has-cur .cur{display:block}
-.has-cur,.has-cur *{cursor:none!important}
-.cur-dot,.cur-ring{position:fixed;left:0;top:0;z-index:100;pointer-events:none;will-change:transform;transform:translate3d(-100px,-100px,0)}
-.cur-dot i,.cur-ring i{position:absolute;border-radius:50%}
-.cur-dot i{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--green);transition:transform .25s var(--ease),background-color .25s}
-.cur-ring i{width:40px;height:40px;margin:-20px 0 0 -20px;border:1px solid color-mix(in srgb,var(--fg) 50%,transparent);transition:transform .45s var(--ease),background-color .3s,border-color .3s}
-.cur-label{position:absolute;transform:translate(-50%,-50%) scale(.5);font:700 .64rem/1 var(--sans);font-stretch:118%;letter-spacing:.16em;text-transform:uppercase;color:var(--on-green);opacity:0;white-space:nowrap;transition:opacity .25s,transform .45s var(--ease)}
-.cur{transition:opacity .3s}
-.cur.is-hidden{opacity:0}
-.cur.is-link .cur-ring i{transform:scale(1.45);border-color:var(--green);background:color-mix(in srgb,var(--green) 12%,transparent)}
-.cur.is-label .cur-ring i{transform:scale(2.3);border-color:var(--green);background:var(--green)}
-.cur.is-label .cur-dot i{transform:scale(0)}
-.cur.is-label .cur-label{opacity:1;transform:translate(-50%,-50%) scale(1)}
-.cur.is-down .cur-ring i{transform:scale(.75)}
-.cur.on-green .cur-dot i{background:var(--on-green)}
-.cur.on-green .cur-ring i{border-color:var(--on-green)}
-.cur.on-green.is-link .cur-ring i{background:color-mix(in srgb,var(--on-green) 12%,transparent)}
-
 /* toast + confetti */
 .toast{position:fixed;left:50%;bottom:24px;z-index:60;max-width:calc(100vw - 32px);transform:translate(-50%,calc(100% + 40px));visibility:hidden;background:var(--green);color:var(--on-green);font:600 .8rem/1.35 var(--sans);font-stretch:110%;letter-spacing:.03em;text-align:center;padding:14px 22px;border-radius:999px;box-shadow:0 22px 44px -14px rgba(0,0,0,.75);transition:transform .6s var(--ease),visibility 0s .6s}
 .toast.on{transform:translate(-50%,0);visibility:visible;transition:transform .6s var(--ease)}
@@ -475,7 +455,6 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 </footer>
 
 <div class="peek" aria-hidden="true"><img alt=""></div>
-<div class="cur" aria-hidden="true"><div class="cur-ring"><i></i><span class="cur-label"></span></div><div class="cur-dot"><i></i></div></div>
 <div class="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -599,29 +578,6 @@ if(fine&&!reduce)document.querySelectorAll('[data-mag]').forEach(el=>{let r;
   el.addEventListener('pointermove',e=>{if(r)el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.3+'px,'+(e.clientY-r.top-r.height/2)*.3+'px)'});
   el.addEventListener('pointerleave',()=>{el.style.transform=''});
 });
-
-/* custom cursor */
-if(fine){
-  const cur=document.querySelector('.cur'),ring=cur.querySelector('.cur-ring'),dot=cur.querySelector('.cur-dot'),label=cur.querySelector('.cur-label');
-  document.querySelectorAll('.rows a').forEach(a=>a.dataset.cursor='View');
-  document.querySelectorAll('.screen').forEach(s=>s.dataset.cursor='Scroll');
-  document.documentElement.classList.add('has-cur');cur.classList.add('is-hidden');
-  let x=-100,y=-100,rx=-100,ry=-100,raf=0;
-  const follow=()=>{rx+=(x-rx)*(reduce?1:.2);ry+=(y-ry)*(reduce?1:.2);ring.style.transform='translate3d('+rx+'px,'+ry+'px,0)';
-    raf=Math.abs(x-rx)+Math.abs(y-ry)>.2?requestAnimationFrame(follow):0};
-  addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;
-    if(cur.classList.contains('is-hidden')){rx=e.clientX;ry=e.clientY;cur.classList.remove('is-hidden')}
-    x=e.clientX;y=e.clientY;dot.style.transform='translate3d('+x+'px,'+y+'px,0)';if(!raf)raf=requestAnimationFrame(follow)},{passive:true});
-  document.addEventListener('pointerover',e=>{const t=e.target;if(!(t instanceof Element))return;
-    const l=t.closest('[data-cursor]'),link=t.closest('a,button');
-    cur.classList.toggle('is-label',!!l);if(l)label.textContent=l.dataset.cursor;
-    cur.classList.toggle('is-link',!l&&!!link);
-    cur.classList.toggle('on-green',!!t.closest('.process,.copy,.tabs [aria-pressed="true"],.spin .core,.toast'));
-  });
-  document.documentElement.addEventListener('mouseleave',()=>cur.classList.add('is-hidden'));
-  addEventListener('pointerdown',()=>cur.classList.add('is-down'));
-  addEventListener('pointerup',()=>cur.classList.remove('is-down'));
-}
 
 /* confetti */
 function burst(x,y,n=36,spread=1){

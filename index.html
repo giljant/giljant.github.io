@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Antonio Gilja — Web designer &amp; front-end developer, Zagreb</title>
-<meta name="description" content="Antonio Gilja, web designer and front-end developer in Zagreb. Selected website design work.">
+<meta name="description" content="Antonio Gilja, web designer and front-end developer in Zagreb. Selected websites and personal visual concepts exploring brand identity, illustration, packaging and editorial design.">
 <meta name="theme-color" content="#0a0b0a">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230a0b0a'/><text x='32' y='46' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%233ee07a'>g</text></svg>">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://giljant.github.io/">
 <meta property="og:title" content="Antonio Gilja — Web designer &amp; front-end developer">
-<meta property="og:description" content="Websites designed in Figma and built in HTML, CSS and React. Selected work from Zagreb.">
+<meta property="og:description" content="Selected websites and personal visual concepts. Web design, front-end development and visual exploration from Zagreb.">
 <meta property="og:image" content="https://giljant.github.io/img/ltg-home-desktop.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,7 +105,7 @@ a{color:inherit}
 .plate-bar .hint{color:var(--muted);margin-left:auto}
 .plate-bar .open{font:500 .9rem var(--sans);text-decoration:none}
 .plate-bar .open:hover{color:var(--green)}
-.stage{--screen-h:clamp(420px,56vw,680px);display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,22vw,292px);gap:0 clamp(24px,3vw,40px);align-items:start}
+.stage{--screen-h:clamp(420px,56vw,680px);--phone-h:clamp(420px,38vw,520px);display:grid;grid-template-columns:minmax(0,1fr) clamp(200px,18vw,240px);gap:0 clamp(24px,2.4vw,32px);align-items:start}
 .desk{position:relative}
 .screen{height:var(--screen-h);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;background:#fff;border-radius:4px 4px 0 0}
 .screen::-webkit-scrollbar{display:none}
@@ -114,11 +114,12 @@ a{color:inherit}
 .meter{position:absolute;right:-14px;top:0;bottom:0;width:2px;background:var(--rule)}
 .meter i{position:absolute;left:0;top:0;width:100%;height:100%;background:var(--green);transform-origin:top;transform:scaleY(0)}
 .mob{position:relative;z-index:2}
-.device{background:#000;padding:8px;border-radius:30px;box-shadow:0 40px 70px -30px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.1) inset}
-.device .screen{height:calc(var(--screen-h) - 16px);border-radius:22px}
-.nomob{display:grid;place-items:center;text-align:center;height:var(--screen-h);border:1px dashed var(--rule);border-radius:30px;padding:24px;font:italic 400 1.05rem/1.4 var(--serif);color:var(--fg-2)}
+.device{background:#000;padding:6px;border-radius:26px;box-shadow:0 40px 70px -30px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.1) inset}
+.device .screen{height:calc(var(--phone-h) - 12px);border-radius:20px}
+.nomob{display:grid;place-items:center;text-align:center;height:var(--phone-h);border:1px dashed var(--rule);border-radius:26px;padding:24px;font:italic 400 1.05rem/1.4 var(--serif);color:var(--fg-2)}
 figcaption{display:flex;justify-content:space-between;gap:12px;padding:12px 0 18px;color:var(--muted);font-size:.95rem}
 figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16em;text-transform:uppercase;color:var(--fg)}
+.mob figcaption{flex-direction:column;gap:4px}
 
 /* what I did */
 .did{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px var(--gut);padding-block:clamp(64px,8vw,110px) clamp(80px,11vw,150px)}
@@ -127,6 +128,39 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 .did li{counter-increment:d;display:grid;grid-template-columns:2.6rem 1fr;padding:16px 0 18px;border-top:1px solid var(--rule);line-height:1.45;color:var(--fg-2);text-wrap:pretty}
 .did li::before{content:counter(d,decimal-leading-zero);font:600 .72rem/2.2 var(--sans);font-stretch:118%;color:var(--green)}
 .did li:first-child{grid-column:1/-1;font-size:clamp(1.2rem,1.7vw,1.45rem);line-height:1.35;color:var(--fg);border-top-color:var(--fg);padding-bottom:26px}
+
+/* personal concepts: image-led studies, separate from commissioned websites */
+.concepts{border-top:1px solid var(--rule);padding-block:clamp(64px,9vw,120px)}
+.concept-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px var(--gut);align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.concept-head .k{color:var(--green);margin-bottom:22px}
+.concept-head h2{font:850 clamp(2.8rem,6.4vw,6rem)/.88 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.04em}
+.concept-head h2 em{display:block;font:italic 300 1.06em/1.05 var(--serif);text-transform:none;letter-spacing:-.03em;color:var(--green);font-stretch:normal}
+.concept-intro{max-width:40rem;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.4;color:var(--fg-2)}
+.concept-intro .concept-note{font:400 .85rem/1.65 var(--sans);margin-top:20px;color:var(--fg-2)}
+.concept-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(40px,5vw,68px) var(--gut)}
+.concept-card{min-width:0;scroll-margin-top:88px}
+.concept-art{display:block;position:relative;background:var(--bg-2);text-decoration:none}
+.concept-art img{width:100%;height:auto;aspect-ratio:1672/941}
+.concept-art .art-open{position:absolute;right:12px;bottom:12px;padding:10px 12px;background:var(--bg);color:var(--fg);font:600 .7rem/1 var(--sans);letter-spacing:.04em;border:1px solid var(--rule)}
+.concept-art:hover .art-open,.concept-art:focus-visible .art-open{background:var(--green);color:var(--on-green)}
+.concept-meta{display:flex;justify-content:space-between;gap:12px;margin-top:20px;color:var(--fg-2)}
+.concept-meta span:first-child{color:var(--green)}
+.concept-card h3{font:800 clamp(1.8rem,3.2vw,2.8rem)/1 var(--sans);font-stretch:125%;letter-spacing:-.035em;margin-top:12px}
+.concept-card p{color:var(--fg-2);font-size:1.08rem;line-height:1.45;max-width:48ch;margin-top:12px;text-wrap:pretty}
+.concept-skills{display:flex;flex-wrap:wrap;gap:8px 18px;border-top:1px solid var(--rule);padding-top:14px;margin-top:20px;font:500 .75rem/1.4 var(--sans);color:var(--fg-2)}
+.concept-jump{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:26px;color:var(--fg-2)}
+.concept-jump a{color:var(--green)}
+@media (max-width:700px){
+  .concept-head,.concept-grid{grid-template-columns:minmax(0,1fr)}
+  .concept-meta{font-size:.65rem;letter-spacing:.1em}
+  .mast nav{gap:12px;font-size:.65rem;letter-spacing:.08em}
+}
+@media (max-width:480px){
+  html{scroll-padding-top:88px}
+  .mast .wrap{height:auto;flex-wrap:wrap;gap:0 16px;padding-top:12px}
+  .mast nav{width:100%;justify-content:space-between;gap:8px}
+  .mast nav a{display:inline-flex;align-items:center;min-height:44px;font-stretch:100%;letter-spacing:.04em}
+}
 
 /* process: the one green block */
 .process{background:var(--green);color:var(--on-green);padding-block:clamp(72px,10vw,140px)}
@@ -186,9 +220,8 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   .name .ln:last-child{text-align:left}
   .stage{grid-template-columns:minmax(0,1fr)}
   .meter{display:none}
-  .stage{--screen-h:62vh}
-  .device .screen{height:440px}
-  .mob{width:min(270px,78vw);justify-self:center;margin:24px 0 8px}
+  .stage{--screen-h:62vh;--phone-h:460px}
+  .mob{width:min(240px,72vw);justify-self:center;margin:24px 0 8px}
   .nomob{height:auto;margin-bottom:24px;min-height:160px}
   figcaption{flex-wrap:wrap;gap:2px 12px}
   figcaption b{white-space:nowrap}
@@ -238,9 +271,7 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 /* contact head + back to top */
 .contact-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
 
-/* toast + confetti */
-.toast{position:fixed;left:50%;bottom:24px;z-index:60;max-width:calc(100vw - 32px);transform:translate(-50%,calc(100% + 40px));visibility:hidden;background:var(--green);color:var(--on-green);font:600 .8rem/1.35 var(--sans);font-stretch:110%;letter-spacing:.03em;text-align:center;padding:14px 22px;border-radius:999px;box-shadow:0 22px 44px -14px rgba(0,0,0,.75);transition:transform .6s var(--ease),visibility 0s .6s}
-.toast.on{transform:translate(-50%,0);visibility:visible;transition:transform .6s var(--ease)}
+/* copy-email confetti */
 .confetti{position:fixed;left:0;top:0;z-index:90;pointer-events:none}
 
 @media (prefers-reduced-motion:no-preference){
@@ -259,15 +290,16 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 }
 </style>
 </head>
-<body>
+<!-- The top anchor belongs to the page root, not the sticky masthead. -->
+<body id="top">
 
 <div class="progress" aria-hidden="true"><i></i></div>
 
-<header class="mast" id="top">
+<header class="mast">
   <div class="wrap">
     <a class="home k" href="#top">A. Gilja</a>
     <span class="clock k" aria-hidden="true">Zagreb <time id="clock"><b>--</b>:<b>--</b></time></span>
-    <nav class="k" aria-label="Sections"><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    <nav class="k" aria-label="Sections"><a href="#work">Work</a><a href="#concepts">Concepts</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   </div>
 </header>
 
@@ -282,9 +314,10 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
       </a>
     </div>
     <div class="lede">
-      <p data-r>I design websites for small and medium-sized businesses in Figma and build them in HTML, CSS and React — <i>taking client sites from the first brief to launch.</i></p>
+      <p data-r>I design websites for small and medium-sized businesses in Figma and build them in HTML, CSS and React — <i>with personal visual projects exploring the space beyond the browser.</i></p>
       <dl class="facts" data-r>
         <div><dt class="k">Since</dt><dd>Writing HTML &amp; CSS since 2018</dd></div>
+        <div><dt class="k">Explore</dt><dd>Websites &amp; visual concepts</dd></div>
       </dl>
     </div>
   </section>
@@ -296,11 +329,12 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   </div>
 
   <section class="index wrap" id="work" aria-labelledby="work-title">
-    <header class="k"><h2 id="work-title">Selected work</h2><span>02 projects</span></header>
+    <header class="k"><h2 id="work-title">Selected websites</h2><span>02 projects</span></header>
     <ol class="rows">
       <li><a href="#ltg" data-peek="img/ltg-home-desktop.jpg"><span class="n k">01</span><span class="t">LTG</span><span class="d">General contractor — website design for desktop and mobile</span><span class="y k">2026</span><span class="arr" aria-hidden="true">↓</span></a></li>
       <li><a href="#stem" data-peek="img/stem-zagreb-desktop.jpg"><span class="n k">02</span><span class="t">STEM-online</span><span class="d">Tutoring — a landing page system for local search</span><span class="y k">2026</span><span class="arr" aria-hidden="true">↓</span></a></li>
     </ol>
+    <p class="concept-jump"><span>Branding, illustration, packaging &amp; more.</span><a class="u" href="#concepts">Explore 06 personal concepts <span aria-hidden="true">↓</span></a></p>
   </section>
 
   <article class="case" id="ltg" aria-labelledby="ltg-title">
@@ -336,7 +370,7 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
             <figcaption><b>Fig. 1a — Desktop</b><span class="js-cap">Homepage · 1200 px</span></figcaption>
           </figure>
           <figure class="mob">
-            <div class="device js-phone"><div class="screen" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/ltg-home-mobile.jpg" alt="LTG Homepage, mobile design" loading="lazy" width="520" height="3682"></div></div>
+            <div class="device js-phone"><div class="screen" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/ltg-home-mobile.jpg" alt="LTG Homepage, mobile design" loading="lazy" width="472" height="3682"></div></div>
             <figcaption class="js-mcap"><b>Fig. 1b — Mobile</b><span>Designed separately</span></figcaption>
           </figure>
         </div>
@@ -388,7 +422,7 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
             <figcaption><b>Fig. 2a — Desktop</b><span class="js-cap">Maths tutoring, Zagreb · 1200 px</span></figcaption>
           </figure>
           <figure class="mob">
-            <div class="device js-phone"><div class="screen" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/stem-zagreb-mobile.jpg" alt="STEM-online Maths tutoring, Zagreb, mobile design" loading="lazy" width="520" height="2236"></div></div>
+            <div class="device js-phone"><div class="screen" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/stem-zagreb-mobile.jpg" alt="STEM-online Maths tutoring, Zagreb, mobile design" loading="lazy" width="436" height="2236"></div></div>
             <div class="nomob js-none" hidden>Desktop design only for this page</div>
             <figcaption class="js-mcap"><b>Fig. 2b — Mobile</b><span>Two-column tutor grid</span></figcaption>
           </figure>
@@ -407,6 +441,83 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
       </ol>
     </div>
   </article>
+
+  <section class="concepts" id="concepts" aria-labelledby="concepts-title">
+    <div class="wrap">
+      <header class="concept-head">
+        <div data-r>
+          <p class="k">Personal projects / 06 visual studies</p>
+          <h2 id="concepts-title">Beyond the <em>browser.</em></h2>
+        </div>
+        <div class="concept-intro" data-r>
+          <p>My personal concept collection explores how an idea takes shape through identity, illustration, composition and type. Six different disciplines, with the design focus of each study below.</p>
+          <p class="concept-note">Personal concept studies with AI-generated imagery — not client commissions.</p>
+        </div>
+      </header>
+      <div class="concept-grid">
+        <article class="concept-card" id="orbita" aria-labelledby="orbita-title" data-r>
+          <a class="concept-art" href="img/orbita.webp" target="_blank" rel="noopener" aria-label="View ORBITA artwork, opens in a new tab">
+            <img src="img/orbita.webp" srcset="img/orbita-840.webp 840w, img/orbita.webp 1672w" sizes="(max-width:700px) 94vw, (max-width:1320px) 45vw, 588px" width="1672" height="941" alt="ORBITA identity concept with orbital symbols, cobalt and lime stationery, and a geometric poster on ivory paper" loading="lazy" decoding="async">
+            <span class="art-open" aria-hidden="true">View artwork ↗</span>
+          </a>
+          <div class="concept-meta k"><span>01 / Brand identity</span><span>Personal concept</span></div>
+          <h3 id="orbita-title">ORBITA</h3>
+          <p>A visual identity study for an imagined culture and sound studio. Orbital geometry connects the wordmark, symbols, stationery and poster into one recognisable system.</p>
+          <ul class="concept-skills" aria-label="ORBITA design focus"><li>Visual systems</li><li>Colour relationships</li><li>Brand applications</li></ul>
+        </article>
+        <article class="concept-card" id="botanica" aria-labelledby="botanica-title" data-r>
+          <a class="concept-art" href="img/botanica.webp" target="_blank" rel="noopener" aria-label="View BOTANICA artwork, opens in a new tab">
+            <img src="img/botanica.webp" srcset="img/botanica-840.webp 840w, img/botanica.webp 1672w" sizes="(max-width:700px) 94vw, (max-width:1320px) 45vw, 588px" width="1672" height="941" alt="Botanical illustration with white birds, citrus, dark blue flowers and a winding river through a Mediterranean landscape" loading="lazy" decoding="async">
+            <span class="art-open" aria-hidden="true">View artwork ↗</span>
+          </a>
+          <div class="concept-meta k"><span>02 / Digital illustration</span><span>Personal concept</span></div>
+          <h3 id="botanica-title">BOTANICA</h3>
+          <p>A Mediterranean garden imagined as an editorial illustration. Oversized foliage, birds and citrus frame a winding river, balancing dense detail with a clear path through the image.</p>
+          <ul class="concept-skills" aria-label="BOTANICA design focus"><li>Shape &amp; rhythm</li><li>Palette development</li><li>Visual storytelling</li></ul>
+        </article>
+        <article class="concept-card" id="other-sun" aria-labelledby="other-sun-title" data-r>
+          <a class="concept-art" href="img/other-sun.webp" target="_blank" rel="noopener" aria-label="View OTHER SUN artwork, opens in a new tab">
+            <img src="img/other-sun.webp" srcset="img/other-sun-840.webp 840w, img/other-sun.webp 1672w" sizes="(max-width:700px) 94vw, (max-width:1320px) 45vw, 588px" width="1672" height="941" alt="OTHER SUN surreal landscape with a reflective metallic ring around a cypress tree, a floating sun and pink salt flats" loading="lazy" decoding="async">
+            <span class="art-open" aria-hidden="true">View artwork ↗</span>
+          </a>
+          <div class="concept-meta k"><span>03 / Digital composition</span><span>Personal concept</span></div>
+          <h3 id="other-sun-title">OTHER SUN</h3>
+          <p>An imagined landscape built around the tension between nature and an impossible object. Warm reflections, atmospheric depth and restrained typography create a cinematic key visual.</p>
+          <ul class="concept-skills" aria-label="OTHER SUN design focus"><li>Composition</li><li>Light &amp; atmosphere</li><li>Image &amp; type</li></ul>
+        </article>
+        <article class="concept-card" id="sora" aria-labelledby="sora-title" data-r>
+          <a class="concept-art" href="img/sora.webp" target="_blank" rel="noopener" aria-label="View SORA artwork, opens in a new tab">
+            <img src="img/sora.webp" srcset="img/sora-840.webp 840w, img/sora.webp 1672w" sizes="(max-width:700px) 94vw, (max-width:1320px) 45vw, 588px" width="1672" height="941" alt="SORA skincare packaging concept with an olive serum bottle, ivory jar and embossed carton on sunlit limestone" loading="lazy" decoding="async">
+            <span class="art-open" aria-hidden="true">View artwork ↗</span>
+          </a>
+          <div class="concept-meta k"><span>04 / Packaging concept</span><span>Personal concept</span></div>
+          <h3 id="sora-title">SORA</h3>
+          <p>A fictional skincare concept exploring a quiet, tactile brand language. Olive glass, ivory packaging and limestone bring the product family and campaign setting into the same visual world.</p>
+          <ul class="concept-skills" aria-label="SORA design focus"><li>Packaging direction</li><li>Material &amp; colour</li><li>Product presentation</li></ul>
+        </article>
+        <article class="concept-card" id="forma" aria-labelledby="forma-title" data-r>
+          <a class="concept-art" href="img/forma.webp" target="_blank" rel="noopener" aria-label="View FORMA artwork, opens in a new tab">
+            <img src="img/forma.webp" srcset="img/forma-840.webp 840w, img/forma.webp 1672w" sizes="(max-width:700px) 94vw, (max-width:1320px) 45vw, 588px" width="1672" height="941" alt="FORMA magazine concept showing terracotta architecture, a serif headline and an open editorial spread beside the cover" loading="lazy" decoding="async">
+            <span class="art-open" aria-hidden="true">View artwork ↗</span>
+          </a>
+          <div class="concept-meta k"><span>05 / Editorial design</span><span>Personal concept</span></div>
+          <h3 id="forma-title">FORMA</h3>
+          <p>An architecture magazine study where the layout echoes the subject. Strong serif headlines, measured whitespace and architectural imagery establish a deliberate reading rhythm.</p>
+          <ul class="concept-skills" aria-label="FORMA design focus"><li>Layout &amp; grids</li><li>Type hierarchy</li><li>Editorial rhythm</li></ul>
+        </article>
+        <article class="concept-card" id="frequency" aria-labelledby="frequency-title" data-r>
+          <a class="concept-art" href="img/frequency.webp" target="_blank" rel="noopener" aria-label="View FREQUENCY artwork, opens in a new tab">
+            <img src="img/frequency.webp" srcset="img/frequency-840.webp 840w, img/frequency.webp 1672w" sizes="(max-width:700px) 94vw, (max-width:1320px) 45vw, 588px" width="1672" height="941" alt="FREQUENCY poster with oversized black condensed lettering and a sculptural blue sound-wave ribbon on acid lime" loading="lazy" decoding="async">
+            <span class="art-open" aria-hidden="true">View artwork ↗</span>
+          </a>
+          <div class="concept-meta k"><span>06 / Poster design</span><span>Personal concept</span></div>
+          <h3 id="frequency-title">FREQUENCY</h3>
+          <p>A music-inspired poster study translating sound into graphic tension. Condensed type, an electric palette and a sculptural wave form make the composition work at a glance.</p>
+          <ul class="concept-skills" aria-label="FREQUENCY design focus"><li>Expressive typography</li><li>Contrast &amp; scale</li><li>Poster composition</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <section class="process" id="process" aria-labelledby="process-title">
     <div class="wrap">
@@ -448,14 +559,12 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
     <div class="foot k">
       <a class="u" href="https://github.com/giljant" target="_blank" rel="noopener">github.com/giljant</a>
       <span>Zagreb, Croatia</span>
-      <span title="Try it on a keyboard">Psst — ↑↑↓↓←→←→BA</span>
       <span>© 2026 Antonio Gilja</span>
     </div>
   </div>
 </footer>
 
 <div class="peek" aria-hidden="true"><img alt=""></div>
-<div class="toast" role="status" aria-live="polite"></div>
 
 <script>
 document.documentElement.classList.add('js');
@@ -594,17 +703,6 @@ function burst(x,y,n=36,spread=1){
     ],{duration:1500+Math.random()*900}).onfinish=()=>p.remove();
   }
 }
-
-/* toast + Konami code easter egg */
-const toast=document.querySelector('.toast');let toastT;
-const say=msg=>{toast.textContent=msg;toast.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>toast.classList.remove('on'),4200)};
-const konami=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let kPos=0;
-addEventListener('keydown',e=>{const k=e.key.length===1?e.key.toLowerCase():e.key;
-  kPos=k===konami[kPos]?kPos+1:(k===konami[0]?1:0);
-  if(kPos===konami.length){kPos=0;
-    for(let i=0;i<7;i++)setTimeout(()=>burst(innerWidth*(.1+.8*Math.random()),innerHeight*(.2+.35*Math.random()),40,1.6),i*170);
-    say('Cheat code accepted ✳ You clearly read the fine print. Let’s build something together.')}
-});
 
 /* little extras */
 const baseTitle=document.title;

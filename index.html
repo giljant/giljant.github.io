@@ -105,24 +105,23 @@ a{color:inherit}
 .plate-bar .hint{color:var(--muted);margin-left:auto}
 .plate-bar .open{font:500 .9rem var(--sans);text-decoration:none}
 .plate-bar .open:hover{color:var(--green)}
-.stage{display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,22vw,292px);gap:0 clamp(24px,3vw,40px);align-items:end}
+.stage{--screen-h:clamp(420px,56vw,680px);display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,22vw,292px);gap:0 clamp(24px,3vw,40px);align-items:start}
 .desk{position:relative}
-.screen{height:clamp(420px,56vw,680px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;background:#fff;border-radius:4px 4px 0 0}
+.screen{height:var(--screen-h);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;background:#fff;border-radius:4px 4px 0 0}
 .screen::-webkit-scrollbar{display:none}
 .screen img{width:100%;height:auto;transition:opacity .35s}
 .screen img.swap{opacity:0}
 .meter{position:absolute;right:-14px;top:0;bottom:0;width:2px;background:var(--rule)}
 .meter i{position:absolute;left:0;top:0;width:100%;height:100%;background:var(--green);transform-origin:top;transform:scaleY(0)}
-.mob{margin-bottom:-64px;position:relative;z-index:2}
+.mob{position:relative;z-index:2}
 .device{background:#000;padding:8px;border-radius:30px;box-shadow:0 40px 70px -30px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.1) inset}
-.device .screen{height:clamp(440px,44vw,560px);border-radius:22px}
-.nomob{display:grid;place-items:center;text-align:center;min-height:300px;border:1px dashed var(--rule);border-radius:30px;padding:24px;font:italic 400 1.05rem/1.4 var(--serif);color:var(--fg-2);margin-bottom:64px}
+.device .screen{height:calc(var(--screen-h) - 16px);border-radius:22px}
+.nomob{display:grid;place-items:center;text-align:center;height:var(--screen-h);border:1px dashed var(--rule);border-radius:30px;padding:24px;font:italic 400 1.05rem/1.4 var(--serif);color:var(--fg-2)}
 figcaption{display:flex;justify-content:space-between;gap:12px;padding:12px 0 18px;color:var(--muted);font-size:.95rem}
 figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16em;text-transform:uppercase;color:var(--fg)}
-.mob figcaption{position:absolute;top:100%;left:0;right:0}
 
 /* what I did */
-.did{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px var(--gut);padding-block:clamp(96px,11vw,150px) clamp(80px,11vw,150px)}
+.did{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px var(--gut);padding-block:clamp(64px,8vw,110px) clamp(80px,11vw,150px)}
 .did h3{grid-column:1/span 2;font-weight:400;color:var(--muted)}
 .did ol{grid-column:3/span 10;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--gut);counter-reset:d}
 .did li{counter-increment:d;display:grid;grid-template-columns:2.6rem 1fr;padding:16px 0 18px;border-top:1px solid var(--rule);line-height:1.45;color:var(--fg-2);text-wrap:pretty}
@@ -187,10 +186,12 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   .name .ln:last-child{text-align:left}
   .stage{grid-template-columns:minmax(0,1fr)}
   .meter{display:none}
-  .screen{height:62vh}
+  .stage{--screen-h:62vh}
+  .device .screen{height:440px}
   .mob{width:min(270px,78vw);justify-self:center;margin:24px 0 8px}
-  .mob figcaption{position:static}
-  .nomob{margin-bottom:24px;min-height:160px}
+  .nomob{height:auto;margin-bottom:24px;min-height:160px}
+  figcaption{flex-wrap:wrap;gap:2px 12px}
+  figcaption b{white-space:nowrap}
   .did{padding-top:56px}
   .plate-bar .hint{margin-left:0;width:100%}
   .did ol{grid-template-columns:minmax(0,1fr)}

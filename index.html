@@ -265,6 +265,24 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 /* copy-email confetti */
 .confetti{position:fixed;left:0;top:0;z-index:90;pointer-events:none}
 
+/* page preloader (from Uiverse.io by alexruix) */
+.preload{display:none}
+.pl .preload{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg) var(--noise);transition:opacity .5s var(--ease),visibility .5s}
+.preload.out{opacity:0;visibility:hidden}
+.loader{position:relative;width:120px;height:90px;margin:0 auto}
+.loader::before{content:"";position:absolute;bottom:30px;left:50px;height:30px;width:30px;border-radius:50%;background:var(--green);animation:loading-bounce .5s ease-in-out infinite alternate}
+.loader::after{content:"";position:absolute;right:0;top:0;height:7px;width:45px;border-radius:4px;box-shadow:0 5px 0 var(--fg),-35px 50px 0 var(--fg),-70px 95px 0 var(--fg);animation:loading-step 1s ease-in-out infinite}
+@keyframes loading-bounce{
+  0%{transform:scale(1,.7)}
+  40%{transform:scale(.8,1.2)}
+  60%{transform:scale(1,1)}
+  100%{bottom:140px}
+}
+@keyframes loading-step{
+  0%{box-shadow:0 10px 0 transparent,0 10px 0 var(--fg),-35px 50px 0 var(--fg),-70px 90px 0 var(--fg)}
+  100%{box-shadow:0 10px 0 var(--fg),-35px 50px 0 var(--fg),-70px 90px 0 var(--fg),-70px 90px 0 transparent}
+}
+
 @media (prefers-reduced-motion:no-preference){
   html{scroll-behavior:smooth}
   .spin svg{animation:spin 18s linear infinite}
@@ -273,6 +291,7 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   .js .steps li{transition:opacity .6s var(--ease)}
   .js .steps li:not(.lit){opacity:.4}
 }
+@media (prefers-reduced-motion:reduce){.pl .preload{display:none}}
 @keyframes spin{to{transform:rotate(1turn)}}
 @media (max-width:700px){
   .badge-hero{display:none}
@@ -280,9 +299,12 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   .totop{width:96px}
 }
 </style>
+<script>document.documentElement.classList.add('pl')</script>
 </head>
 <!-- The top anchor belongs to the page root, not the sticky masthead. -->
 <body id="top">
+
+<div class="preload" aria-hidden="true"><div class="loader"></div></div>
 
 <div class="progress" aria-hidden="true"><i></i></div>
 
@@ -551,6 +573,11 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 <script>
 document.documentElement.classList.add('js');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* preloader: fade out once everything has loaded */
+const preload=document.querySelector('.preload');
+const hidePreload=()=>{preload.classList.add('out');preload.addEventListener('transitionend',()=>preload.remove(),{once:true})};
+if(document.readyState==='complete')hidePreload();else addEventListener('load',hidePreload,{once:true});
 
 /* reveal */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});

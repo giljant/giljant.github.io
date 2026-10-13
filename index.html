@@ -78,9 +78,6 @@ a{color:inherit}
 .rows .arr{font-family:var(--sans);justify-self:end;transition:transform .5s var(--ease)}
 .rows a:hover .t{transform:translateX(.18em);color:var(--green)}
 .rows a:hover .arr{transform:translateY(5px);color:var(--green)}
-.peek{position:fixed;left:0;top:0;width:min(30vw,380px);aspect-ratio:4/3;pointer-events:none;z-index:30;overflow:hidden;opacity:0;transform:translate3d(-50%,-50%,0) scale(.86) rotate(-2deg);transition:opacity .25s,transform .45s var(--ease);box-shadow:0 30px 60px -20px rgba(0,0,0,.8);outline:1px solid var(--green);outline-offset:6px}
-.peek.on{opacity:1;transform:translate3d(-50%,-50%,0) scale(1) rotate(-2deg)}
-.peek img{width:100%;height:100%;object-fit:cover;object-position:top}
 
 /* case */
 .case{border-top:1px solid var(--rule);padding-top:clamp(56px,8vw,110px)}
@@ -231,7 +228,6 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   .steps li{grid-template-columns:2.8rem 1fr}
   .steps p{grid-column:2}
   .tools{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .peek{display:none}
 }
 
 /* ---------- extras ---------- */
@@ -239,9 +235,6 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .progress{position:fixed;inset:0 0 auto;height:2px;z-index:40;pointer-events:none}
 .progress i{display:block;height:100%;background:var(--green);transform-origin:left;transform:scaleX(0);box-shadow:0 0 10px var(--green)}
-.clock{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
-.clock time{color:var(--fg)}
-.clock b{font-weight:inherit}
 .mast nav a,.mast .home{display:inline-block;white-space:nowrap}
 .name .ch{transition:font-weight .3s var(--ease)}
 
@@ -284,7 +277,7 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 }
 @keyframes spin{to{transform:rotate(1turn)}}
 @media (max-width:700px){
-  .clock,.badge-hero{display:none}
+  .badge-hero{display:none}
   .contact-head{flex-wrap:wrap}
   .totop{width:96px}
 }
@@ -298,7 +291,6 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 <header class="mast">
   <div class="wrap">
     <a class="home k" href="#top">A. Gilja</a>
-    <span class="clock k" aria-hidden="true">Zagreb <time id="clock"><b>--</b>:<b>--</b></time></span>
     <nav class="k" aria-label="Sections"><a href="#work">Work</a><a href="#concepts">Concepts</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   </div>
 </header>
@@ -331,8 +323,8 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   <section class="index wrap" id="work" aria-labelledby="work-title">
     <header class="k"><h2 id="work-title">Selected websites</h2><span>02 projects</span></header>
     <ol class="rows">
-      <li><a href="#ltg" data-peek="img/ltg-home-desktop.jpg"><span class="n k">01</span><span class="t">LTG</span><span class="d">General contractor — website design for desktop and mobile</span><span class="y k">2026</span><span class="arr" aria-hidden="true">↓</span></a></li>
-      <li><a href="#stem" data-peek="img/stem-zagreb-desktop.jpg"><span class="n k">02</span><span class="t">STEM-online</span><span class="d">Tutoring — a landing page system for local search</span><span class="y k">2026</span><span class="arr" aria-hidden="true">↓</span></a></li>
+      <li><a href="#ltg"><span class="n k">01</span><span class="t">LTG</span><span class="d">General contractor — website design for desktop and mobile</span><span class="y k">2026</span><span class="arr" aria-hidden="true">↓</span></a></li>
+      <li><a href="#stem"><span class="n k">02</span><span class="t">STEM-online</span><span class="d">Tutoring — a landing page system for local search</span><span class="y k">2026</span><span class="arr" aria-hidden="true">↓</span></a></li>
     </ol>
     <p class="concept-jump"><span>Branding, illustration, packaging &amp; more.</span><a class="u" href="#concepts">Explore 06 personal concepts <span aria-hidden="true">↓</span></a></p>
   </section>
@@ -564,8 +556,6 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   </div>
 </footer>
 
-<div class="peek" aria-hidden="true"><img alt=""></div>
-
 <script>
 document.documentElement.classList.add('js');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -604,18 +594,6 @@ document.querySelectorAll('.viewer').forEach(v=>{
   }));
 });
 
-/* index hover preview */
-const peek=document.querySelector('.peek'),pimg=peek.querySelector('img');
-if(matchMedia('(hover:hover) and (pointer:fine)').matches){
-  let x=0,y=0,px=0,py=0,raf=0;
-  const loop=()=>{px+=(x-px)*.18;py+=(y-py)*.18;peek.style.left=px+'px';peek.style.top=py+'px';raf=Math.abs(x-px)+Math.abs(y-py)>.3?requestAnimationFrame(loop):0};
-  document.querySelectorAll('[data-peek]').forEach(a=>{
-    a.addEventListener('mouseenter',e=>{pimg.src=a.dataset.peek;px=x=e.clientX;py=y=e.clientY;loop();peek.classList.add('on')});
-    a.addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;if(!raf)raf=requestAnimationFrame(loop)});
-    a.addEventListener('mouseleave',()=>peek.classList.remove('on'));
-  });
-}
-
 /* copy email */
 document.getElementById('copy').addEventListener('click',e=>{
   const b=e.currentTarget,el=document.getElementById('email'),txt=el.textContent;
@@ -637,12 +615,6 @@ const onScroll=()=>{scrollQueued=false;
 };
 addEventListener('scroll',()=>{if(!scrollQueued){scrollQueued=true;requestAnimationFrame(onScroll)}},{passive:true});
 addEventListener('resize',onScroll);onScroll();
-
-/* live Zagreb clock */
-const clockParts=document.querySelectorAll('#clock b');
-const zgTime=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Zagreb',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
-const tick=()=>{const p=zgTime.formatToParts(new Date());clockParts[0].textContent=p.find(x=>x.type==='hour').value;clockParts[1].textContent=p.find(x=>x.type==='minute').value};
-tick();setInterval(tick,10000);
 
 /* hero name: letters get heavier/lighter as the cursor gets close */
 const nameEl=document.querySelector('.name'),chars=[];

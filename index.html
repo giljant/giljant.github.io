@@ -6,6 +6,13 @@
 <title>Antonio Gilja — Web designer &amp; front-end developer, Zagreb</title>
 <meta name="description" content="Antonio Gilja, web designer and front-end developer in Zagreb. Selected website design work.">
 <meta name="theme-color" content="#0a0b0a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230a0b0a'/><text x='32' y='46' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%233ee07a'>g</text></svg>">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://giljant.github.io/">
+<meta property="og:title" content="Antonio Gilja — Web designer &amp; front-end developer">
+<meta property="og:description" content="Websites designed in Figma and built in HTML, CSS and React. Selected work from Zagreb.">
+<meta property="og:image" content="https://giljant.github.io/img/ltg-home-desktop.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
@@ -192,13 +199,93 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   .tools{grid-template-columns:repeat(2,minmax(0,1fr))}
   .peek{display:none}
 }
+
+/* ---------- extras ---------- */
+.copy{transition:background .25s,color .25s,border-color .25s,transform .45s var(--ease)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.progress{position:fixed;inset:0 0 auto;height:2px;z-index:40;pointer-events:none}
+.progress i{display:block;height:100%;background:var(--green);transform-origin:left;transform:scaleX(0);box-shadow:0 0 10px var(--green)}
+.clock{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.clock time{color:var(--fg)}
+.clock b{font-weight:inherit}
+.mast nav a,.mast .home{display:inline-block;white-space:nowrap}
+.name .ch{transition:font-weight .3s var(--ease)}
+
+/* spinning badges */
+.namebox{position:relative}
+.spin{position:relative;display:grid;place-items:center;flex-shrink:0;width:clamp(96px,11vw,140px);aspect-ratio:1;border-radius:50%;text-decoration:none;color:var(--fg);transition:transform .45s var(--ease)}
+.spin svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.spin text{font:600 9.4px var(--sans);font-stretch:118%;letter-spacing:.2em;text-transform:uppercase;fill:currentColor}
+.spin .core{width:44%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:var(--green);color:var(--on-green);font:500 clamp(1.1rem,1.6vw,1.5rem)/1 var(--sans);transition:transform .5s var(--ease)}
+.spin:hover .core{transform:scale(1.14) rotate(-14deg)}
+.badge-hero{position:absolute;left:0;bottom:1.2cqi;width:clamp(96px,12cqi,150px)}
+
+/* ticker */
+.ticker{overflow:hidden;border-block:1px solid var(--rule);padding:clamp(14px,2vw,26px) 0;margin-bottom:clamp(56px,8vw,110px);user-select:none;-webkit-user-select:none}
+.ticker-track,.ticker-group{display:flex;align-items:center;width:max-content}
+.ticker-track{will-change:transform}
+.ticker span{font:850 clamp(2rem,5.6vw,4.8rem)/1 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.03em;padding-inline:.4em;white-space:nowrap}
+.ticker span:nth-child(4n+3){color:transparent;-webkit-text-stroke:1px var(--fg-2)}
+.ticker .st{width:clamp(1.2rem,3vw,2.6rem);aspect-ratio:1;flex-shrink:0;background:var(--green);-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
+:root{--star:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g fill='black'><rect x='10.4' y='0' width='3.2' height='24' rx='1.6'/><rect x='10.4' y='0' width='3.2' height='24' rx='1.6' transform='rotate(45 12 12)'/><rect x='10.4' y='0' width='3.2' height='24' rx='1.6' transform='rotate(90 12 12)'/><rect x='10.4' y='0' width='3.2' height='24' rx='1.6' transform='rotate(135 12 12)'/></g></svg>")}
+
+/* process: steps light up while scrolling */
+.steps li{position:relative}
+.steps li::after{content:"";position:absolute;left:0;right:0;top:-2px;height:3px;background:var(--on-green);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease)}
+.steps li.lit::after{transform:scaleX(1)}
+
+/* contact head + back to top */
+.contact-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+
+/* custom cursor (fine pointers only, enabled by JS) */
+.cur{display:none}
+.has-cur .cur{display:block}
+.has-cur,.has-cur *{cursor:none!important}
+.cur-dot,.cur-ring{position:fixed;left:0;top:0;z-index:100;pointer-events:none;will-change:transform;transform:translate3d(-100px,-100px,0)}
+.cur-dot i,.cur-ring i{position:absolute;border-radius:50%}
+.cur-dot i{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--green);transition:transform .25s var(--ease),background-color .25s}
+.cur-ring i{width:40px;height:40px;margin:-20px 0 0 -20px;border:1px solid color-mix(in srgb,var(--fg) 50%,transparent);transition:transform .45s var(--ease),background-color .3s,border-color .3s}
+.cur-label{position:absolute;transform:translate(-50%,-50%) scale(.5);font:700 .64rem/1 var(--sans);font-stretch:118%;letter-spacing:.16em;text-transform:uppercase;color:var(--on-green);opacity:0;white-space:nowrap;transition:opacity .25s,transform .45s var(--ease)}
+.cur{transition:opacity .3s}
+.cur.is-hidden{opacity:0}
+.cur.is-link .cur-ring i{transform:scale(1.45);border-color:var(--green);background:color-mix(in srgb,var(--green) 12%,transparent)}
+.cur.is-label .cur-ring i{transform:scale(2.3);border-color:var(--green);background:var(--green)}
+.cur.is-label .cur-dot i{transform:scale(0)}
+.cur.is-label .cur-label{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.cur.is-down .cur-ring i{transform:scale(.75)}
+.cur.on-green .cur-dot i{background:var(--on-green)}
+.cur.on-green .cur-ring i{border-color:var(--on-green)}
+.cur.on-green.is-link .cur-ring i{background:color-mix(in srgb,var(--on-green) 12%,transparent)}
+
+/* toast + confetti */
+.toast{position:fixed;left:50%;bottom:24px;z-index:60;max-width:calc(100vw - 32px);transform:translate(-50%,calc(100% + 40px));visibility:hidden;background:var(--green);color:var(--on-green);font:600 .8rem/1.35 var(--sans);font-stretch:110%;letter-spacing:.03em;text-align:center;padding:14px 22px;border-radius:999px;box-shadow:0 22px 44px -14px rgba(0,0,0,.75);transition:transform .6s var(--ease),visibility 0s .6s}
+.toast.on{transform:translate(-50%,0);visibility:visible;transition:transform .6s var(--ease)}
+.confetti{position:fixed;left:0;top:0;z-index:90;pointer-events:none}
+
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .spin svg{animation:spin 18s linear infinite}
+  .spin:hover svg{animation-duration:6s}
+  .ticker .st{animation:spin 7s linear infinite}
+  .js .steps li{transition:opacity .6s var(--ease)}
+  .js .steps li:not(.lit){opacity:.4}
+}
+@keyframes spin{to{transform:rotate(1turn)}}
+@media (max-width:700px){
+  .clock,.badge-hero{display:none}
+  .contact-head{flex-wrap:wrap}
+  .totop{width:96px}
+}
 </style>
 </head>
 <body>
 
+<div class="progress" aria-hidden="true"><i></i></div>
+
 <header class="mast" id="top">
   <div class="wrap">
     <a class="home k" href="#top">A. Gilja</a>
+    <span class="clock k" aria-hidden="true">Zagreb <time id="clock"><b>--</b>:<b>--</b></time></span>
     <nav class="k" aria-label="Sections"><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
   </div>
 </header>
@@ -206,7 +293,13 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 <main>
   <section class="hero wrap" aria-labelledby="name">
     <div class="row k"><span>Web designer &amp; front-end developer</span><span>Zagreb, Croatia — Portfolio 2026</span></div>
-    <h1 class="name" id="name"><span class="ln"><span>Antonio</span></span><span class="ln"><span><em>Gilja</em></span></span></h1>
+    <div class="namebox">
+      <h1 class="name" id="name"><span class="ln"><span>Antonio</span></span><span class="ln"><span><em>Gilja</em></span></span></h1>
+      <a class="spin badge-hero" href="#work" data-mag aria-label="Jump to selected work">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="ring-hero" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text><textPath href="#ring-hero" textLength="292">Selected work · Scroll down · </textPath></text></svg>
+        <span class="core" aria-hidden="true">↓</span>
+      </a>
+    </div>
     <div class="lede">
       <p data-r>I design websites for small and medium-sized businesses in Figma and build them in HTML, CSS and React — <i>taking client sites from the first brief to launch.</i></p>
       <dl class="facts" data-r>
@@ -214,6 +307,12 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
       </dl>
     </div>
   </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-group"><span>Web design</span><i class="st"></i><span>Front-end</span><i class="st"></i><span>Figma to code</span><i class="st"></i><span>React</span><i class="st"></i><span>Mobile first</span><i class="st"></i><span>SEO-ready</span><i class="st"></i><span>Fast loading</span><i class="st"></i><span>Brief to launch</span><i class="st"></i></div>
+    </div>
+  </div>
 
   <section class="index wrap" id="work" aria-labelledby="work-title">
     <header class="k"><h2 id="work-title">Selected work</h2><span>02 projects</span></header>
@@ -354,20 +453,29 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 <footer class="contact" id="contact">
   <div class="wrap">
     <p class="k">Contact</p>
-    <h2 data-r>Let’s build your <em>next</em> site</h2>
+    <div class="contact-head">
+      <h2 data-r>Let’s build your <em>next</em> site</h2>
+      <a class="spin totop" href="#top" data-mag aria-label="Back to top">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="ring-top" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text><textPath href="#ring-top" textLength="292">Back to top · Back to top · </textPath></text></svg>
+        <span class="core" aria-hidden="true">↑</span>
+      </a>
+    </div>
     <div class="mailrow" data-r>
       <a class="mail u" id="email" href="mailto:antgilja@gmail.com">antgilja@gmail.com</a>
-      <button type="button" class="copy" id="copy">Copy email</button>
+      <button type="button" class="copy" id="copy" data-mag>Copy email</button>
     </div>
     <div class="foot k">
       <a class="u" href="https://github.com/giljant" target="_blank" rel="noopener">github.com/giljant</a>
       <span>Zagreb, Croatia</span>
+      <span title="Try it on a keyboard">Psst — ↑↑↓↓←→←→BA</span>
       <span>© 2026 Antonio Gilja</span>
     </div>
   </div>
 </footer>
 
 <div class="peek" aria-hidden="true"><img alt=""></div>
+<div class="cur" aria-hidden="true"><div class="cur-ring"><i></i><span class="cur-label"></span></div><div class="cur-dot"><i></i></div></div>
+<div class="toast" role="status" aria-live="polite"></div>
 
 <script>
 document.documentElement.classList.add('js');
@@ -422,10 +530,130 @@ if(matchMedia('(hover:hover) and (pointer:fine)').matches){
 /* copy email */
 document.getElementById('copy').addEventListener('click',e=>{
   const b=e.currentTarget,el=document.getElementById('email'),txt=el.textContent;
-  const done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy email',1600)};
+  const done=()=>{b.textContent='Copied ✓';const r=b.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,44);setTimeout(()=>b.textContent='Copy email',1600)};
   const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected — press Ctrl+C'};
   try{navigator.clipboard.writeText(txt).then(done,sel)}catch(_){sel()}
 });
+
+/* ---------- extras ---------- */
+const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+/* scroll progress + process steps lighting up */
+const bar=document.querySelector('.progress i'),steps=[...document.querySelectorAll('.steps li')];
+let scrollQueued=false;
+const onScroll=()=>{scrollQueued=false;
+  const max=document.documentElement.scrollHeight-innerHeight;
+  bar.style.transform='scaleX('+(max>0?scrollY/max:0)+')';
+  const lim=innerHeight*.68;steps.forEach(li=>li.classList.toggle('lit',li.getBoundingClientRect().top<lim));
+};
+addEventListener('scroll',()=>{if(!scrollQueued){scrollQueued=true;requestAnimationFrame(onScroll)}},{passive:true});
+addEventListener('resize',onScroll);onScroll();
+
+/* live Zagreb clock */
+const clockParts=document.querySelectorAll('#clock b');
+const zgTime=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Zagreb',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
+const tick=()=>{const p=zgTime.formatToParts(new Date());clockParts[0].textContent=p.find(x=>x.type==='hour').value;clockParts[1].textContent=p.find(x=>x.type==='minute').value};
+tick();setInterval(tick,10000);
+
+/* hero name: letters get heavier/lighter as the cursor gets close */
+const nameEl=document.querySelector('.name'),chars=[];
+nameEl.querySelectorAll('.ln>span').forEach(s=>{
+  const t=s.querySelector('em')||s,txt=t.textContent;t.textContent='';
+  [...txt].forEach(c=>{const e=document.createElement('span');e.className='ch';e.textContent=c;t.append(e);chars.push({el:e,serif:t!==s})});
+});
+nameEl.querySelectorAll('.ln').forEach(l=>l.setAttribute('aria-hidden','true'));
+nameEl.insertAdjacentHTML('afterbegin','<span class="sr">Antonio Gilja</span>');
+if(fine&&!reduce){
+  const hero=document.querySelector('.hero');let mx=-1e4,my=-1e4,q=false;
+  const run=()=>{q=false;const R=Math.max(innerWidth*.17,180);
+    chars.forEach(c=>{const r=c.el.getBoundingClientRect(),d=Math.hypot(mx-(r.left+r.width/2),my-(r.top+r.height/2)),f=Math.max(0,1-d/R),k=f*f*(3-2*f);
+      c.el.style.fontWeight=c.serif?Math.round(300+300*k):Math.round(850-550*k)})};
+  hero.addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;if(!q){q=true;requestAnimationFrame(run)}});
+  hero.addEventListener('pointerleave',()=>{mx=my=-1e4;requestAnimationFrame(run)});
+}
+
+/* ticker: drifts on its own, speeds up and flips direction with scrolling */
+const track=document.querySelector('.ticker-track');
+if(!reduce){
+  const group=track.firstElementChild;track.append(group.cloneNode(true));
+  let x=0,v=0,dir=-1,w=group.offsetWidth,lastY=scrollY,last=0,vis=false;
+  const measure=()=>{w=group.offsetWidth};document.fonts?.ready.then(measure);addEventListener('resize',measure);
+  addEventListener('scroll',()=>{const dy=scrollY-lastY;lastY=scrollY;if(dy){v=Math.min(v+Math.abs(dy),900);dir=dy>0?-1:1}},{passive:true});
+  const step=t=>{if(!vis)return;const dt=last?Math.min(t-last,50)/1000:0;last=t;v*=.93;
+    x+=dir*(60+v*5)*dt;if(x<=-w)x+=w;if(x>0)x-=w;
+    track.style.transform='translate3d('+x+'px,0,0)';requestAnimationFrame(step)};
+  new IntersectionObserver(([e])=>{vis=e.isIntersecting;if(vis){last=0;requestAnimationFrame(step)}}).observe(track.parentElement);
+}
+
+/* nav text scramble */
+const glyphs='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#*+/';
+const scramble=el=>{if(el._s)return;const fin=el.dataset.text||(el.dataset.text=el.textContent);el.style.width=el.offsetWidth+'px';let f=0;
+  el._s=setInterval(()=>{f++;el.textContent=[...fin].map((c,i)=>c===' '||c==='.'||i<f/2?c:glyphs[Math.random()*glyphs.length|0]).join('');
+    if(f/2>=fin.length){clearInterval(el._s);el._s=0;el.textContent=fin;el.style.width=''}},30)};
+if(!reduce)document.querySelectorAll('.mast nav a,.mast .home').forEach(a=>a.addEventListener('pointerenter',()=>scramble(a)));
+
+/* magnetic buttons */
+if(fine&&!reduce)document.querySelectorAll('[data-mag]').forEach(el=>{let r;
+  el.addEventListener('pointerenter',()=>{r=el.getBoundingClientRect()});
+  el.addEventListener('pointermove',e=>{if(r)el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.3+'px,'+(e.clientY-r.top-r.height/2)*.3+'px)'});
+  el.addEventListener('pointerleave',()=>{el.style.transform=''});
+});
+
+/* custom cursor */
+if(fine){
+  const cur=document.querySelector('.cur'),ring=cur.querySelector('.cur-ring'),dot=cur.querySelector('.cur-dot'),label=cur.querySelector('.cur-label');
+  document.querySelectorAll('.rows a').forEach(a=>a.dataset.cursor='View');
+  document.querySelectorAll('.screen').forEach(s=>s.dataset.cursor='Scroll');
+  document.documentElement.classList.add('has-cur');cur.classList.add('is-hidden');
+  let x=-100,y=-100,rx=-100,ry=-100,raf=0;
+  const follow=()=>{rx+=(x-rx)*(reduce?1:.2);ry+=(y-ry)*(reduce?1:.2);ring.style.transform='translate3d('+rx+'px,'+ry+'px,0)';
+    raf=Math.abs(x-rx)+Math.abs(y-ry)>.2?requestAnimationFrame(follow):0};
+  addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;
+    if(cur.classList.contains('is-hidden')){rx=e.clientX;ry=e.clientY;cur.classList.remove('is-hidden')}
+    x=e.clientX;y=e.clientY;dot.style.transform='translate3d('+x+'px,'+y+'px,0)';if(!raf)raf=requestAnimationFrame(follow)},{passive:true});
+  document.addEventListener('pointerover',e=>{const t=e.target;if(!(t instanceof Element))return;
+    const l=t.closest('[data-cursor]'),link=t.closest('a,button');
+    cur.classList.toggle('is-label',!!l);if(l)label.textContent=l.dataset.cursor;
+    cur.classList.toggle('is-link',!l&&!!link);
+    cur.classList.toggle('on-green',!!t.closest('.process,.copy,.tabs [aria-pressed="true"],.spin .core,.toast'));
+  });
+  document.documentElement.addEventListener('mouseleave',()=>cur.classList.add('is-hidden'));
+  addEventListener('pointerdown',()=>cur.classList.add('is-down'));
+  addEventListener('pointerup',()=>cur.classList.remove('is-down'));
+}
+
+/* confetti */
+function burst(x,y,n=36,spread=1){
+  if(reduce)return;const cols=['#3ee07a','#edf0ea','#9ff5bf','#1fae55'];
+  for(let i=0;i<n;i++){
+    const p=document.createElement('i'),s=6+Math.random()*7;p.className='confetti';
+    p.style.cssText='width:'+s+'px;height:'+(Math.random()<.5?s:s*1.8)+'px;margin:-5px 0 0 -5px;background:'+cols[i%cols.length]+';border-radius:'+(Math.random()<.3?'50%':'1px');
+    document.body.append(p);
+    const a=-Math.PI/2+(Math.random()-.5)*Math.PI*spread,sp=160+Math.random()*320,dx=Math.cos(a)*sp,dy=Math.sin(a)*sp,rot=(Math.random()-.5)*1000;
+    p.animate([
+      {transform:'translate('+x+'px,'+y+'px) rotate(0deg)',easing:'cubic-bezier(.2,.8,.3,1)'},
+      {transform:'translate('+(x+dx)+'px,'+(y+dy)+'px) rotate('+rot/2+'deg)',offset:.4,easing:'cubic-bezier(.5,0,.9,.6)'},
+      {transform:'translate('+(x+dx*1.4)+'px,'+(y+dy+480)+'px) rotate('+rot+'deg)',opacity:0}
+    ],{duration:1500+Math.random()*900}).onfinish=()=>p.remove();
+  }
+}
+
+/* toast + Konami code easter egg */
+const toast=document.querySelector('.toast');let toastT;
+const say=msg=>{toast.textContent=msg;toast.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>toast.classList.remove('on'),4200)};
+const konami=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let kPos=0;
+addEventListener('keydown',e=>{const k=e.key.length===1?e.key.toLowerCase():e.key;
+  kPos=k===konami[kPos]?kPos+1:(k===konami[0]?1:0);
+  if(kPos===konami.length){kPos=0;
+    for(let i=0;i<7;i++)setTimeout(()=>burst(innerWidth*(.1+.8*Math.random()),innerHeight*(.2+.35*Math.random()),40,1.6),i*170);
+    say('Cheat code accepted ✳ You clearly read the fine print. Let’s build something together.')}
+});
+
+/* little extras */
+const baseTitle=document.title;
+document.addEventListener('visibilitychange',()=>{document.title=document.hidden?'👋 Come back soon — Antonio Gilja':baseTitle});
+console.log('%cHi, curious developer 👋','font:700 16px system-ui;color:#3ee07a');
+console.log('This whole site is one hand-written HTML file. Say hi: antgilja@gmail.com');
 </script>
 </body>
 </html>

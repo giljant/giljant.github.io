@@ -15,14 +15,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Doto:ROND,wght@0..100,100..900&family=Newsreader:opsz,wght@6..72,300..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Newsreader:opsz,wght@6..72,300..600&display=swap">
 <style>
 :root{
   --bg:#0a0b0a; --bg-2:#111311; --fg:#edf0ea; --fg-2:#b6bcb2; --muted:#7b8278; --rule:#252924;
   --green:#3ee07a; --on-green:#0a0b0a;
   --sans:'Archivo',ui-sans-serif,system-ui,sans-serif;
   --serif:'Newsreader',Georgia,'Times New Roman',serif;
-  --display:'Doto',ui-monospace,monospace;
   --max:1320px; --gut:clamp(18px,3.4vw,48px);
   --ease:cubic-bezier(.2,.7,.1,1);
   color-scheme:dark;
@@ -58,7 +57,8 @@ a{color:inherit}
 .name .ln{display:block;padding-bottom:.06em}
 .name .ln>span{display:inline-block}
 .name .ln:last-child{text-align:right;margin-top:-.04em}
-.name em{font:800 1.06em/1 var(--display);font-variation-settings:'ROND' 100;text-transform:none;letter-spacing:-.03em;color:var(--green)}
+.name em{font-style:normal;color:var(--green)}
+.name .ascii{display:inline-block;vertical-align:top;margin:0;font:400 1em/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:0;text-transform:none;text-align:left;white-space:pre;user-select:none;-webkit-user-select:none;touch-action:pan-y}
 .name.flex .ln:first-child{font-size:calc(var(--fit)*1em);touch-action:pan-y}
 .name .ch{display:inline-block}
 .lede{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px var(--gut);margin-top:clamp(36px,6vw,80px);padding-bottom:clamp(56px,9vw,120px)}
@@ -105,11 +105,11 @@ a{color:inherit}
 /* case */
 .case{border-top:1px solid var(--rule);padding-top:clamp(56px,8vw,110px)}
 .case-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px var(--gut);padding-bottom:clamp(40px,6vw,72px)}
-.case-no{grid-column:1/span 2;font:800 clamp(4rem,9vw,8.5rem)/.78 var(--display);font-variation-settings:'ROND' 100;color:var(--green);letter-spacing:-.04em}
+.case-no{grid-column:1/span 2;font:850 clamp(4rem,9vw,8.5rem)/.78 var(--sans);font-stretch:125%;color:var(--green);letter-spacing:-.05em}
 .case-title{grid-column:3/span 10}
 .case-title .k{color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
 .case h2{font:850 clamp(3rem,9vw,8rem)/.82 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.04em;margin-top:14px}
-.case h2 em{display:block;font:700 .36em/1.15 var(--display);font-variation-settings:'ROND' 100;text-transform:none;letter-spacing:-.02em;color:var(--fg-2);margin-top:.3em}
+.case h2 em{display:block;font:300 .4em/1.15 var(--serif);text-transform:none;letter-spacing:-.01em;color:var(--fg-2);margin-top:.3em}
 .brief{grid-column:3/span 6;font-size:clamp(1.15rem,1.5vw,1.35rem);line-height:1.45;text-wrap:pretty}
 .specs{grid-column:10/span 3;border-top:1px solid var(--fg);font-size:.95rem;line-height:1.35}
 .specs div{display:grid;grid-template-columns:5rem 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--rule)}
@@ -154,7 +154,7 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 .concept-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px var(--gut);align-items:end;margin-bottom:clamp(36px,5vw,64px)}
 .concept-head .k{color:var(--green);margin-bottom:22px}
 .concept-head h2{font:850 clamp(2.8rem,6.4vw,6rem)/.88 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.04em}
-.concept-head h2 em{display:block;font:800 1.06em/1.05 var(--display);font-variation-settings:'ROND' 100;text-transform:none;letter-spacing:-.03em;color:var(--green)}
+.concept-head h2 em{display:block;font-style:normal;color:var(--green)}
 .concept-intro{max-width:40rem;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.4;color:var(--fg-2)}
 .concept-intro .concept-note{font:400 .85rem/1.65 var(--sans);margin-top:20px;color:var(--fg-2)}
 .concept-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(40px,5vw,68px) var(--gut)}
@@ -186,11 +186,11 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 .process .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px var(--gut)}
 .process-head{grid-column:1/span 4;grid-row:1/span 2;align-self:start;position:sticky;top:96px}
 .process-head h2{font:850 clamp(2.2rem,4.6vw,4rem)/.88 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.035em;margin-top:14px}
-.process-head h2 em{font:800 1.05em/1 var(--display);font-variation-settings:'ROND' 100;text-transform:none;letter-spacing:-.03em}
+.process-head h2 em{font-style:normal}
 .steps{grid-column:6/span 7;counter-reset:s}
 .steps li{counter-increment:s;display:grid;grid-template-columns:3.4rem 9.5rem 1fr 64px;gap:12px;align-items:baseline;padding:20px 0;border-top:1px solid var(--on-green)}
 .steps li:last-child{border-bottom:1px solid var(--on-green)}
-.steps li::before{content:counter(s,decimal-leading-zero);font:800 2rem/1 var(--display);font-variation-settings:'ROND' 100}
+.steps li::before{content:counter(s,decimal-leading-zero);font:850 1.5rem/1 var(--sans);font-stretch:125%;letter-spacing:-.03em}
 .steps b{font:700 1rem/1.3 var(--sans);font-stretch:112%;letter-spacing:.01em}
 .steps p{line-height:1.45;opacity:.82}
 
@@ -231,9 +231,9 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 .contact{padding-block:clamp(72px,11vw,150px) 28px}
 .contact .k{color:var(--muted)}
 .contact h2{font:850 clamp(2.6rem,8.4vw,7.6rem)/.84 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.04em;margin-top:18px;max-width:12ch}
-.contact h2 em{font:800 1.04em/1 var(--display);font-variation-settings:'ROND' 100;text-transform:none;letter-spacing:-.03em;color:var(--green)}
+.contact h2 em{font-style:normal;color:var(--green)}
 .mailrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px 28px;margin-top:clamp(36px,5vw,64px);padding-top:22px;border-top:1px solid var(--rule)}
-.mail{font:700 clamp(1.8rem,5vw,4.2rem)/1.1 var(--display);font-variation-settings:'ROND' 100;letter-spacing:-.02em;word-break:break-all;transition:color .2s}
+.mail{font:300 clamp(1.8rem,5vw,4.2rem)/1.1 var(--serif);letter-spacing:-.02em;word-break:break-all;transition:color .2s}
 .mail:hover{color:var(--green)}
 .copy{font:600 .72rem/1 var(--sans);font-stretch:118%;letter-spacing:.16em;text-transform:uppercase;color:var(--fg);background:transparent;border:1px solid var(--rule);border-radius:2px;padding:12px 16px;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
 .copy:hover{background:var(--green);color:var(--on-green);border-color:var(--green)}
@@ -667,6 +667,108 @@ if(!reduce)(async()=>{
 
   /* one pass across the word once the preloader is gone, so visitors see it move */
   setTimeout(()=>{if(!raf&&line.getBoundingClientRect().bottom>0){intro=performance.now();p=-SIG;wake()}},500);
+})();
+
+/* name: "Gilja" as ASCII. The word is set in Archivo on a hidden canvas, every character cell is sampled as a 3×3
+   coverage grid and matched to the glyph whose own 3×3 sample is closest, so edges get / \ _ ( ) instead of a flat
+   density ramp. It types itself in after the preloader, scrambles under the pointer, and a scan passes through now and then. */
+(async()=>{
+  const em=document.querySelector('.name em'),line=em.closest('.ln');
+  const MONO='ui-monospace,SFMono-Regular,Consolas,monospace';
+  const SET=" .,:;'\"^-_~=+*!|/\\()[]{}<>ilrtfjxczvunoaeswXYUJCLQ0OZmhkbdpqg#MW&8%@$";
+  const NOISE="#$%&*+=/\\|<>{}[]()01!?;:";
+  await document.fonts.load('850 100px Archivo','GILJA');
+  if(document.readyState!=='complete')await new Promise(r=>addEventListener('load',r,{once:true}));
+
+  const pre=document.createElement('pre');pre.className='ascii';pre.setAttribute('aria-hidden','true');
+  em.replaceChildren(pre);
+  pre.style.fontSize='100px';pre.textContent='M'.repeat(40);
+  const ratio=pre.getBoundingClientRect().width/4000;
+  pre.textContent='';
+
+  const canvas=(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c.getContext('2d',{willReadFrequently:true})};
+  const sample=(d,w,x0,y0,cw,ch)=>{const v=new Float32Array(9);
+    for(let k=0;k<9;k++){
+      const xa=x0+((k%3)*cw/3|0),xb=x0+((k%3+1)*cw/3|0),ya=y0+((k/3|0)*ch/3|0),yb=y0+(((k/3|0)+1)*ch/3|0);
+      let s=0;for(let y=ya;y<yb;y++)for(let x=xa;x<xb;x++)s+=d[(y*w+x)*4+3];
+      v[k]=s/((xb-xa)*(yb-ya)*255)}
+    return v};
+
+  /* glyph shapes, sampled once at the same cell proportions the <pre> uses */
+  const CW=12,CH=Math.round(CW/ratio);
+  const g=canvas(SET.length*CW,CH);g.font=CH+'px '+MONO;
+  const gm=g.measureText('M'),base=(CH-gm.fontBoundingBoxAscent-gm.fontBoundingBoxDescent)/2+gm.fontBoundingBoxAscent;
+  [...SET].forEach((s,i)=>g.fillText(s,i*CW,base));
+  const gd=g.getImageData(0,0,SET.length*CW,CH).data;
+  const shapes=[...SET].map((_,i)=>sample(gd,SET.length*CW,i*CW,0,CW,CH));
+  const peak=Math.max(...shapes.flatMap(v=>[...v]));
+  shapes.forEach(v=>v.forEach((x,k)=>v[k]=x/peak));
+
+  let cols=0,rows=0,f=0,R=0,T=[],heat,reveal,builtW=0;
+  const build=()=>{
+    const fs=parseFloat(getComputedStyle(line).fontSize),small=innerWidth<=700,FONT='850 expanded 100px Archivo';
+    const m0=canvas(1,1);m0.font=FONT;if('letterSpacing' in m0)m0.letterSpacing='-3.5px';
+    const m=m0.measureText('GILJA'),tw=m.actualBoundingBoxLeft+m.actualBoundingBoxRight,th=m.actualBoundingBoxAscent+m.actualBoundingBoxDescent;
+    const W=small?line.clientWidth:tw*fs/100;
+    rows=Math.max(9,Math.min(16,Math.round(W*th/tw/11)));f=W*th/tw/rows;cols=Math.round(W/(f*ratio));R=f*7;
+    const c=canvas(cols*CW,rows*CH);c.font=FONT;if('letterSpacing' in c)c.letterSpacing='-3.5px';
+    c.setTransform(cols*CW/tw,0,0,rows*CH/th,0,0);
+    c.fillText('GILJA',m.actualBoundingBoxLeft,m.actualBoundingBoxAscent);
+    const d=c.getImageData(0,0,cols*CW,rows*CH).data;
+    T=[];
+    for(let r=0;r<rows;r++)for(let q=0;q<cols;q++){
+      const v=sample(d,cols*CW,q*CW,r*CH,CW,CH);
+      if(Math.max(...v)<.08){T.push(' ');continue}
+      let best=0,bd=1e9;
+      for(let i=0;i<shapes.length;i++){let s=0;for(let k=0;k<9;k++){const e=v[k]-shapes[i][k];s+=e*e}if(s<bd){bd=s;best=i}}
+      T.push(SET[best])}
+    heat=new Float32Array(rows*cols);reveal=new Float32Array(rows*cols);
+    pre.style.fontSize=f+'px';builtW=innerWidth;
+  };
+  const still=()=>{const o=[];for(let r=0;r<rows;r++)o.push(T.slice(r*cols,(r+1)*cols).join(''));return o.join('\n')};
+  build();pre.textContent=still();
+  addEventListener('resize',()=>{clearTimeout(build.t);build.t=setTimeout(()=>{if(innerWidth!==builtW){build();pre.textContent=still()}},150)});
+  if(reduce)return;
+
+  const noise=()=>NOISE[Math.random()*NOISE.length|0];
+  let px=-1e4,py=0,scanT=-1,introEnd=0,raf=0,last=0,hot=false,seen=true,timer=0;
+  const draw=now=>{
+    let out='',warm=false;
+    const sc=scanT<0?-99:(now-scanT)/1100*(cols+8)-4;
+    if(sc>cols+4)scanT=-1;
+    for(let r=0;r<rows;r++){
+      for(let q=0;q<cols;q++){const i=r*cols+q,t=T[i];
+        if(px>-1e3){const h=1-Math.hypot((q+.5)*f*ratio-px,(r+.5)*f-py)/R;if(h>heat[i])heat[i]=h}
+        const h=heat[i];heat[i]=h>.02?h*.86:0;
+        let o=t;
+        if(now<reveal[i])o=t===' '||now<reveal[i]-260?' ':noise();
+        else if(h>.02){warm=true;o=t===' '?(h>.45?'.':' '):Math.random()<h?noise():t}
+        else if(t!==' '&&Math.abs(q-sc)<1.5)o=noise();
+        out+=o}
+      if(r<rows-1)out+='\n'}
+    pre.textContent=out;return warm};
+  const queue=()=>{clearTimeout(timer);timer=setTimeout(()=>{if(seen&&!document.hidden){scanT=performance.now();wake()}else queue()},6500+Math.random()*3000)};
+  const tick=now=>{raf=0;
+    if(now-last>=45){last=now;hot=draw(now)}
+    if(now<introEnd||scanT>=0||px>-1e3||hot)raf=requestAnimationFrame(tick);
+    else{pre.textContent=still();queue()}};
+  const wake=()=>{if(!raf)raf=requestAnimationFrame(tick)};
+
+  const near=e=>{const b=pre.getBoundingClientRect();
+    if(e.clientX<b.left-R||e.clientX>b.right+R||e.clientY<b.top-R||e.clientY>b.bottom+R){px=-1e4;return}
+    px=e.clientX-b.left;py=e.clientY-b.top;wake()};
+  const off=()=>{px=-1e4};
+  addEventListener('pointermove',near,{passive:true});
+  addEventListener('pointerdown',near,{passive:true});
+  addEventListener('pointerup',e=>{if(e.pointerType!=='mouse')off()});
+  addEventListener('pointercancel',off);
+  document.documentElement.addEventListener('pointerleave',off);
+  new IntersectionObserver(([e])=>seen=e.isIntersecting).observe(line);
+
+  /* type in left to right once the preloader is gone */
+  const t0=performance.now()+500;
+  for(let i=0;i<rows*cols;i++)reveal[i]=t0+(i%cols)/cols*900+Math.random()*260+260;
+  introEnd=t0+1500;pre.textContent='';wake();
 })();
 
 /* process pictograms */

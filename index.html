@@ -15,14 +15,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Kalnia:wdth,wght@100..125,100..700&family=Newsreader:opsz,wght@6..72,300..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Doto:ROND,wght@0..100,100..900&family=Newsreader:opsz,wght@6..72,300..600&display=swap">
 <style>
 :root{
   --bg:#0a0b0a; --bg-2:#111311; --fg:#edf0ea; --fg-2:#b6bcb2; --muted:#7b8278; --rule:#252924;
   --green:#3ee07a; --on-green:#0a0b0a;
   --sans:'Archivo',ui-sans-serif,system-ui,sans-serif;
   --serif:'Newsreader',Georgia,'Times New Roman',serif;
-  --display:'Kalnia',Georgia,serif;
+  --display:'Doto',ui-monospace,monospace;
   --max:1320px; --gut:clamp(18px,3.4vw,48px);
   --ease:cubic-bezier(.2,.7,.1,1);
   color-scheme:dark;
@@ -55,10 +55,10 @@ a{color:inherit}
 .hero{padding-top:clamp(28px,5vw,64px);container-type:inline-size}
 .hero .row{display:flex;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--fg);color:var(--fg-2)}
 .name{font-family:var(--sans);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:16.7cqi;line-height:.8;letter-spacing:-.035em;margin:clamp(18px,3vw,36px) 0 0 -.04em}
-.name .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.name .ln{display:block;padding-bottom:.06em}
 .name .ln>span{display:inline-block}
 .name .ln:last-child{text-align:right;margin-top:-.04em}
-.name em{font:300 1.06em/1 var(--display);text-transform:none;letter-spacing:-.03em;color:var(--green)}
+.name em{font:800 1.06em/1 var(--display);font-variation-settings:'ROND' 100;text-transform:none;letter-spacing:-.03em;color:var(--green)}
 .name.flex .ln:first-child{font-size:calc(var(--fit)*1em);touch-action:pan-y}
 .name .ch{display:inline-block}
 .lede{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px var(--gut);margin-top:clamp(36px,6vw,80px);padding-bottom:clamp(56px,9vw,120px)}
@@ -105,11 +105,11 @@ a{color:inherit}
 /* case */
 .case{border-top:1px solid var(--rule);padding-top:clamp(56px,8vw,110px)}
 .case-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px var(--gut);padding-bottom:clamp(40px,6vw,72px)}
-.case-no{grid-column:1/span 2;font:300 clamp(4rem,9vw,8.5rem)/.78 var(--display);color:var(--green);letter-spacing:-.04em}
+.case-no{grid-column:1/span 2;font:800 clamp(4rem,9vw,8.5rem)/.78 var(--display);font-variation-settings:'ROND' 100;color:var(--green);letter-spacing:-.04em}
 .case-title{grid-column:3/span 10}
 .case-title .k{color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
 .case h2{font:850 clamp(3rem,9vw,8rem)/.82 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.04em;margin-top:14px}
-.case h2 em{display:block;font:300 .36em/1.15 var(--display);text-transform:none;letter-spacing:-.01em;color:var(--fg-2);margin-top:.3em}
+.case h2 em{display:block;font:700 .36em/1.15 var(--display);font-variation-settings:'ROND' 100;text-transform:none;letter-spacing:-.02em;color:var(--fg-2);margin-top:.3em}
 .brief{grid-column:3/span 6;font-size:clamp(1.15rem,1.5vw,1.35rem);line-height:1.45;text-wrap:pretty}
 .specs{grid-column:10/span 3;border-top:1px solid var(--fg);font-size:.95rem;line-height:1.35}
 .specs div{display:grid;grid-template-columns:5rem 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--rule)}
@@ -154,7 +154,7 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 .concept-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px var(--gut);align-items:end;margin-bottom:clamp(36px,5vw,64px)}
 .concept-head .k{color:var(--green);margin-bottom:22px}
 .concept-head h2{font:850 clamp(2.8rem,6.4vw,6rem)/.88 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.04em}
-.concept-head h2 em{display:block;font:300 1.06em/1.05 var(--display);text-transform:none;letter-spacing:-.03em;color:var(--green)}
+.concept-head h2 em{display:block;font:800 1.06em/1.05 var(--display);font-variation-settings:'ROND' 100;text-transform:none;letter-spacing:-.03em;color:var(--green)}
 .concept-intro{max-width:40rem;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.4;color:var(--fg-2)}
 .concept-intro .concept-note{font:400 .85rem/1.65 var(--sans);margin-top:20px;color:var(--fg-2)}
 .concept-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(40px,5vw,68px) var(--gut)}
@@ -186,11 +186,11 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 .process .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px var(--gut)}
 .process-head{grid-column:1/span 4;grid-row:1/span 2;align-self:start;position:sticky;top:96px}
 .process-head h2{font:850 clamp(2.2rem,4.6vw,4rem)/.88 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.035em;margin-top:14px}
-.process-head h2 em{font:300 1.05em/1 var(--display);text-transform:none;letter-spacing:-.03em}
+.process-head h2 em{font:800 1.05em/1 var(--display);font-variation-settings:'ROND' 100;text-transform:none;letter-spacing:-.03em}
 .steps{grid-column:6/span 7;counter-reset:s}
 .steps li{counter-increment:s;display:grid;grid-template-columns:3.4rem 9.5rem 1fr 64px;gap:12px;align-items:baseline;padding:20px 0;border-top:1px solid var(--on-green)}
 .steps li:last-child{border-bottom:1px solid var(--on-green)}
-.steps li::before{content:counter(s,decimal-leading-zero);font:300 2rem/1 var(--display)}
+.steps li::before{content:counter(s,decimal-leading-zero);font:800 2rem/1 var(--display);font-variation-settings:'ROND' 100}
 .steps b{font:700 1rem/1.3 var(--sans);font-stretch:112%;letter-spacing:.01em}
 .steps p{line-height:1.45;opacity:.82}
 
@@ -231,9 +231,9 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 .contact{padding-block:clamp(72px,11vw,150px) 28px}
 .contact .k{color:var(--muted)}
 .contact h2{font:850 clamp(2.6rem,8.4vw,7.6rem)/.84 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.04em;margin-top:18px;max-width:12ch}
-.contact h2 em{font:300 1.04em/1 var(--display);text-transform:none;letter-spacing:-.03em;color:var(--green)}
+.contact h2 em{font:800 1.04em/1 var(--display);font-variation-settings:'ROND' 100;text-transform:none;letter-spacing:-.03em;color:var(--green)}
 .mailrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px 28px;margin-top:clamp(36px,5vw,64px);padding-top:22px;border-top:1px solid var(--rule)}
-.mail{font:300 clamp(1.8rem,5vw,4.2rem)/1.1 var(--display);letter-spacing:-.02em;word-break:break-all;transition:color .2s}
+.mail{font:700 clamp(1.8rem,5vw,4.2rem)/1.1 var(--display);font-variation-settings:'ROND' 100;letter-spacing:-.02em;word-break:break-all;transition:color .2s}
 .mail:hover{color:var(--green)}
 .copy{font:600 .72rem/1 var(--sans);font-stretch:118%;letter-spacing:.16em;text-transform:uppercase;color:var(--fg);background:transparent;border:1px solid var(--rule);border-radius:2px;padding:12px 16px;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
 .copy:hover{background:var(--green);color:var(--on-green);border-color:var(--green)}

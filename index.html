@@ -57,7 +57,7 @@ a{color:inherit}
 .name .ln{display:block;overflow:hidden;padding-bottom:.06em}
 .name .ln>span{display:inline-block}
 .name .ln:last-child{text-align:right;margin-top:-.04em}
-.name em{font:italic 300 1.06em/1 var(--serif);text-transform:none;letter-spacing:-.045em;font-stretch:normal;color:var(--green);padding-right:.04em}
+.name em{font-style:normal;font-weight:300;font-stretch:62%;letter-spacing:-.01em;color:var(--green)}
 .name.flex .ln:first-child{font-size:calc(var(--fit)*1em);touch-action:pan-y}
 .name .ch{display:inline-block}
 .lede{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px var(--gut);margin-top:clamp(36px,6vw,80px);padding-bottom:clamp(56px,9vw,120px)}
@@ -187,11 +187,42 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 .process-head h2{font:850 clamp(2.2rem,4.6vw,4rem)/.88 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.035em;margin-top:14px}
 .process-head h2 em{font:italic 300 1.05em/1 var(--serif);text-transform:none;letter-spacing:-.03em;font-stretch:normal}
 .steps{grid-column:6/span 7;counter-reset:s}
-.steps li{counter-increment:s;display:grid;grid-template-columns:3.4rem 9.5rem 1fr;gap:12px;align-items:baseline;padding:20px 0;border-top:1px solid var(--on-green)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:3.4rem 9.5rem 1fr 72px;gap:12px;align-items:baseline;padding:20px 0;border-top:1px solid var(--on-green)}
 .steps li:last-child{border-bottom:1px solid var(--on-green)}
 .steps li::before{content:counter(s,decimal-leading-zero);font:italic 300 2rem/1 var(--serif)}
 .steps b{font:700 1rem/1.3 var(--sans);font-stretch:112%;letter-spacing:.01em}
 .steps p{line-height:1.45;opacity:.82}
+
+/* process pictograms: the same sheet through five steps; each plays once in view, again on hover */
+.pic{grid-column:4;grid-row:1;align-self:center;width:72px;height:72px;margin-block:-8px;fill:none;stroke:currentColor;stroke-width:1.25;overflow:visible}
+.pic .f{fill:currentColor;stroke:none}
+.pic .hole{fill:var(--green);stroke:none}
+.pic .dash{stroke-dasharray:2.5 2}
+.pic .ghost{opacity:.35}
+.pic .dim{opacity:.45}
+.pic [pathLength]{stroke-dasharray:1}
+.pic .a{transform-box:fill-box;transform-origin:0 50%}
+.pic .pop,.pic .wide,.pic .narrow{transform-origin:50% 50%}
+.pic .wide{opacity:0}
+.pic .wide *{vector-effect:non-scaling-stroke}
+.pic .draw{--k:draw;--t:.5s}
+.pic .drop{--k:drop;--t:.5s}
+.pic .grow{--k:grow;--t:.45s}
+.pic .type{--k:grow;--t:.14s}
+.pic .pop{--k:pop;--t:.35s}
+.pic .wide{--k:squeeze;--t:1.3s}
+.pic .narrow{--k:appear;--t:1.3s}
+.pic.run .a{animation:var(--k) var(--t) var(--ease) var(--d,0s) both}
+.pic.run .type{animation-timing-function:linear}
+.pic.run .caret{animation:pop .2s var(--ease) .95s both,blink 1s steps(1) 1.6s infinite}
+.pic.hold *{animation-play-state:paused!important}
+@keyframes draw{from{stroke-dashoffset:1}}
+@keyframes drop{from{opacity:0;transform:translateY(-7px)}}
+@keyframes grow{from{transform:scaleX(0)}}
+@keyframes pop{from{opacity:0;transform:scale(0)}}
+@keyframes squeeze{0%{opacity:1;transform:none}55%{opacity:1;transform:scaleX(.37)}75%,100%{opacity:0;transform:scaleX(.37)}}
+@keyframes appear{0%,55%{opacity:0}100%{opacity:1}}
+@keyframes blink{50%{opacity:0}}
 .tools{grid-column:6/span 7;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:12px}
 .tools dt{opacity:.62;margin-bottom:6px}
 .tools dd{font-size:1rem;line-height:1.4}
@@ -235,8 +266,9 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   .did{padding-top:56px}
   .plate-bar .hint{margin-left:0;width:100%}
   .did ol{grid-template-columns:minmax(0,1fr)}
-  .steps li{grid-template-columns:2.8rem 1fr}
+  .steps li{grid-template-columns:2.8rem 1fr 56px}
   .steps p{grid-column:2}
+  .pic{grid-column:3;grid-row:1/span 2;align-self:start;width:56px;height:56px;margin-block:0}
   .tools{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
@@ -500,11 +532,16 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
         <h2 id="process-title">From brief <em>to</em> launch</h2>
       </div>
       <ol class="steps">
-        <li><b>Brief</b><p>Talk with the client about the business, the audience and what the site has to achieve.</p></li>
-        <li><b>Structure</b><p>Turn their raw content into a sitemap and a clear order of sections for each page.</p></li>
-        <li><b>Design</b><p>Design desktop and mobile in Figma, present it, and iterate through feedback rounds.</p></li>
-        <li><b>Build</b><p>Build in HTML, CSS and React, matching the design down to spacing and type.</p></li>
-        <li><b>Test &amp; launch</b><p>Check across devices and browsers, tune SEO and load speed, deploy, then maintain.</p></li>
+        <li><b>Brief</b><p>Talk with the client about the business, the audience and what the site has to achieve.</p>
+          <svg class="pic" viewBox="0 0 48 48" aria-hidden="true"><path d="M11 5h18l8 8v30H11zM29 5v8h8"/><path class="a draw" style="--d:.15s" pathLength="1" d="M15 20q2.25-3 4.5 0t4.5 0 4.5 0 4.5 0"/><path class="a draw" style="--d:.55s" pathLength="1" d="M15 27q2.25-3 4.5 0t4.5 0 4.5 0 4.5 0"/><path class="a draw" style="--d:.95s" pathLength="1" d="M15 34q2.25-3 4.5 0t4.5 0"/></svg></li>
+        <li><b>Structure</b><p>Turn their raw content into a sitemap and a clear order of sections for each page.</p>
+          <svg class="pic" viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="5" width="26" height="38"/><g class="dash"><rect class="a drop" style="--d:.1s" x="15" y="10" width="18" height="3"/><rect class="a drop" style="--d:.3s" x="15" y="17" width="18" height="10"/><rect class="a drop" style="--d:.5s" x="15" y="31" width="8" height="8"/><rect class="a drop" style="--d:.7s" x="25" y="31" width="8" height="8"/></g></svg></li>
+        <li><b>Design</b><p>Design desktop and mobile in Figma, present it, and iterate through feedback rounds.</p>
+          <svg class="pic" viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="5" width="26" height="38"/><g class="dash ghost"><rect x="15" y="10" width="18" height="3"/><rect x="15" y="17" width="18" height="10"/><rect x="15" y="31" width="8" height="8"/><rect x="25" y="31" width="8" height="8"/></g><rect class="f a grow" style="--d:.1s" x="15" y="10" width="11" height="3"/><rect class="f a grow" style="--d:.3s" x="15" y="17" width="18" height="10"/><circle class="hole a pop" style="--d:.65s" cx="28.5" cy="21" r="2"/><path class="a grow" style="--d:.5s" d="M15 32.5h8"/><path class="a grow" style="--d:.6s" d="M15 35.5h8"/><path class="a grow" style="--d:.7s" d="M15 38.5h5"/><path class="a grow" style="--d:.6s" d="M25 32.5h8"/><path class="a grow" style="--d:.7s" d="M25 35.5h8"/><path class="a grow" style="--d:.8s" d="M25 38.5h5"/></svg></li>
+        <li><b>Build</b><p>Build in HTML, CSS and React, matching the design down to spacing and type.</p>
+          <svg class="pic" viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="5" width="26" height="38"/><path class="a type" style="--d:.1s" d="M15 12h4"/><path class="a type dim" style="--d:.2s" d="M21 12h6"/><path class="a type" style="--d:.3s" d="M18 17h4"/><path class="a type dim" style="--d:.4s" d="M24 17h7"/><path class="a type" style="--d:.5s" d="M18 22h8"/><path class="a type" style="--d:.6s" d="M21 27h3"/><path class="a type dim" style="--d:.7s" d="M26 27h6"/><path class="a type" style="--d:.8s" d="M15 32h4"/><rect class="f caret" x="20.5" y="29.5" width="1.5" height="5"/></svg></li>
+        <li><b>Test &amp; launch</b><p>Check across devices and browsers, tune SEO and load speed, deploy, then maintain.</p>
+          <svg class="pic" viewBox="0 0 48 48" aria-hidden="true"><g class="a wide"><rect x="5" y="11" width="38" height="25"/><path d="M5 15h38"/><rect class="f" x="9" y="19" width="14" height="6"/><path d="M9 29h14M9 32h10M27 20h12M27 23h12M27 26h8"/></g><g class="a narrow"><rect x="17" y="7" width="14" height="30"/><path d="M22 10h4"/><rect class="f" x="20" y="13" width="8" height="6"/><path d="M20 22h8M20 25h8M20 28h5"/></g><path class="a draw" style="--d:1.35s" pathLength="1" d="M33 39l3 3 6-7"/></svg></li>
       </ol>
       <dl class="tools">
         <div><dt class="k">Design</dt><dd>Figma, Photoshop, Illustrator</dd></div>
@@ -631,6 +668,19 @@ if(!reduce)(async()=>{
   /* one pass across the word once the preloader is gone, so visitors see it move */
   setTimeout(()=>{if(!raf&&line.getBoundingClientRect().bottom>0){intro=performance.now();p=-SIG;wake()}},500);
 })();
+
+/* process pictograms */
+if(!reduce){
+  const pics=document.querySelectorAll('.steps .pic');
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('hold');io.unobserve(e.target)}}),{rootMargin:'0px 0px -20% 0px'});
+  const busy=p=>p.getAnimations({subtree:true}).some(a=>a.playState==='running'&&a.effect.getTiming().iterations!==Infinity);
+  pics.forEach(p=>{
+    p.classList.add('run','hold');io.observe(p);
+    p.closest('li').addEventListener('pointerenter',()=>{
+      if(p.classList.contains('hold')||busy(p))return;
+      p.classList.remove('run');void p.getBoundingClientRect();p.classList.add('run')});
+  });
+}
 
 /* copy email */
 document.getElementById('copy').addEventListener('click',e=>{

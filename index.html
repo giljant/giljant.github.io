@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Antonio Gilja | Web designer &amp; front-end developer, Zagreb</title>
-<meta name="description" content="Antonio Gilja, web designer and front-end developer in Zagreb. How I work, personal visual concepts in brand identity, illustration, packaging and editorial design, and website proposals.">
+<title>Antonio Gilja | Full-stack developer &amp; web designer, Zagreb</title>
+<meta name="description" content="Antonio Gilja, full-stack developer and web designer in Zagreb. Interfaces, REST and GraphQL APIs, databases and DevOps, plus personal visual concepts and website proposals.">
 <meta name="theme-color" content="#0a0b0a">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230a0b0a'/><text x='32' y='46' text-anchor='middle' font-family='Georgia,serif' font-size='46' fill='%233ee07a'>g</text></svg>">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://giljant.github.io/">
-<meta property="og:title" content="Antonio Gilja | Web designer &amp; front-end developer">
-<meta property="og:description" content="Process, personal visual concepts and website proposals. Web design, front-end development and visual exploration from Zagreb.">
+<meta property="og:title" content="Antonio Gilja | Full-stack developer &amp; web designer">
+<meta property="og:description" content="Full-stack web development from interface to infrastructure, personal visual concepts and website proposals. Zagreb, Croatia.">
 <meta property="og:image" content="https://giljant.github.io/img/og.jpg">
 <meta property="og:image:width" content="1500">
 <meta property="og:image:height" content="788">
-<meta property="og:image:alt" content="Antonio Gilja, web designer and front-end developer in Zagreb. The surname is set in green ASCII characters.">
+<meta property="og:image:alt" content="Antonio Gilja, full-stack developer and web designer in Zagreb. The surname is set in green ASCII characters.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -257,6 +257,7 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   .steps p{grid-column:2}
   .pic{grid-column:3;grid-row:1/span 2;align-self:start;width:48px;height:48px;margin-block:0}
   .tools{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .code-card{font-size:clamp(10px,3.2vw,13px)}
 }
 
 .mast nav a,.mast .home{display:inline-block;white-space:nowrap}
@@ -299,26 +300,29 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 
 <main>
   <section class="hero wrap" aria-labelledby="name">
-    <div class="row k"><span>Web designer &amp; front-end developer</span><span>Zagreb, Croatia</span></div>
+    <div class="row k"><span>Full-stack developer &amp; web designer</span><span>Zagreb, Croatia</span></div>
     <h1 class="name" id="name" aria-label="Antonio Gilja"><span class="ln"><span>Antonio</span></span><span class="ln"><span><em>Gilja</em></span></span></h1>
     <div class="lede">
-      <p>I design websites for small and medium-sized businesses in Figma and build them in HTML, CSS and React. <i>On the side, I make personal visual projects.</i></p>
+      <p>I design and build web applications for small and medium-sized businesses, end to end: the interface, the REST and GraphQL APIs, the database, and the Docker and CI/CD setup it all runs on. <i>On the side, I make personal visual projects.</i></p>
       <figure class="code-card" aria-label="Code sample">
         <div class="titlebar" aria-hidden="true"><span class="file">antonio.js</span><span class="tb minimize"><svg viewBox="0 0 10.2 1"><rect width="10.2" height="1"/></svg></span><span class="tb maximize"><svg viewBox="0 0 10 10"><path d="M0,0v10h10V0H0z M9,9H1V1h8V9z"/></svg></span><span class="tb close"><svg viewBox="0 0 10 10"><polygon points="10.2,0.7 9.5,0 5.1,4.4 0.7,0 0,0.7 4.4,5.1 0,9.5 0.7,10.2 5.1,5.8 9.5,10.2 10.2,9.5 5.8,5.1"/></svg></span></div>
 <pre><code><span class="cm">// hand-written, like this site</span>
 <span class="s2">const</span> <span class="s5">antonio</span> <span class="operator">=</span> <span class="curlies">{</span>
-  <span class="s3">role</span><span class="operator">:</span> <span class="s1">'design + code'</span>,
-  <span class="s3">stack</span><span class="operator">:</span> <span class="rounds">[</span><span class="s1">'HTML'</span>, <span class="s1">'CSS'</span>, <span class="s1">'JS'</span>,
-          <span class="s1">'React'</span>, <span class="s1">'Figma'</span><span class="rounds">]</span>,
+  <span class="s3">role</span><span class="operator">:</span> <span class="s1">'design + full stack'</span>,
+  <span class="s3">front</span><span class="operator">:</span> <span class="rounds">[</span><span class="s1">'React'</span>, <span class="s1">'Next.js'</span>, <span class="s1">'Figma'</span><span class="rounds">]</span>,
+  <span class="s3">back</span><span class="operator">:</span> <span class="rounds">[</span><span class="s1">'Node'</span>, <span class="s1">'Python'</span>, <span class="s1">'Java'</span>, <span class="s1">'.NET'</span><span class="rounds">]</span>,
+  <span class="s3">data</span><span class="operator">:</span> <span class="rounds">[</span><span class="s1">'Postgres'</span>, <span class="s1">'MySQL'</span>, <span class="s1">'Mongo'</span><span class="rounds">]</span>,
+  <span class="s3">ops</span><span class="operator">:</span> <span class="rounds">[</span><span class="s1">'Docker'</span>, <span class="s1">'K8s'</span>, <span class="s1">'AWS'</span>, <span class="s1">'CI/CD'</span><span class="rounds">]</span>,
   <span class="s3">since</span><span class="operator">:</span> <span class="s4">2018</span>,
 <span class="curlies">}</span><span class="sc">;</span>
 
 <span class="s2">function</span> <span class="s6">build</span><span class="rounds">(</span><span class="s5">brief</span><span class="rounds">)</span> <span class="curlies">{</span>
   <span class="s2">const</span> <span class="s5">ui</span> <span class="operator">=</span> <span class="s6">design</span><span class="rounds">(</span><span class="s5">brief</span><span class="rounds">)</span><span class="sc">;</span>
-  <span class="s2">return</span> <span class="s6">ship</span><span class="rounds">(</span><span class="s6">code</span><span class="rounds">(</span><span class="s5">ui</span><span class="rounds">))</span><span class="sc">;</span>
+  <span class="s2">const</span> <span class="s5">api</span> <span class="operator">=</span> <span class="s6">rest</span><span class="rounds">(</span><span class="s5">brief</span><span class="rounds">)</span><span class="sc">;</span>
+  <span class="s2">return</span> <span class="s6">deploy</span><span class="rounds">(</span><span class="s6">code</span><span class="rounds">(</span><span class="s5">ui</span>, <span class="s5">api</span><span class="rounds">))</span><span class="sc">;</span>
 <span class="curlies">}</span>
 
-<span class="s6">build</span><span class="rounds">(</span><span class="s1">'your website'</span><span class="rounds">)</span><span class="sc">;</span></code></pre>
+<span class="s6">build</span><span class="rounds">(</span><span class="s1">'your app'</span><span class="rounds">)</span><span class="sc">;</span></code></pre>
       </figure>
       <dl class="facts">
         <div><dt class="k">Since</dt><dd>Writing HTML &amp; CSS since 2018</dd></div>
@@ -336,20 +340,24 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
       <ol class="steps">
         <li><b>Brief</b><p>Talk with the client about the business, the audience and what the site has to achieve.</p>
           <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 3h12l6 6v20H7zM19 3v6h6"/><path class="a draw" style="--d:.15s" pathLength="1" d="M10 15q1.5-3 3 0t3 0 3 0 3 0"/><path class="a draw" style="--d:.55s" pathLength="1" d="M10 20q1.5-3 3 0t3 0 3 0 3 0"/><path class="a draw" style="--d:.95s" pathLength="1" d="M10 25q1.5-3 3 0t3 0"/></svg></li>
-        <li><b>Structure</b><p>Turn their raw content into a sitemap and a clear order of sections for each page.</p>
+        <li><b>Structure</b><p>Turn their raw content into a sitemap, the sections of each page and the data model behind them.</p>
           <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26"/><g class="dash"><path class="a drop" style="--d:.1s" d="M10 7h12"/><rect class="a drop" style="--d:.3s" x="10" y="10" width="12" height="8"/><rect class="a drop" style="--d:.5s" x="10" y="21" width="5" height="5"/><rect class="a drop" style="--d:.7s" x="17" y="21" width="5" height="5"/></g></svg></li>
         <li><b>Design</b><p>Design desktop and mobile in Figma, present it, and iterate through feedback rounds.</p>
           <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26"/><rect class="f a grow" style="--d:.1s" x="10" y="6" width="7" height="2"/><rect class="f a grow" style="--d:.3s" x="10" y="10" width="12" height="8"/><circle class="hole a pop" style="--d:.65s" cx="18" cy="13" r="1.5"/><path class="a grow" style="--d:.5s" d="M10 22h5"/><path class="a grow" style="--d:.6s" d="M10 25h5"/><path class="a grow" style="--d:.6s" d="M17 22h5"/><path class="a grow" style="--d:.7s" d="M17 25h3"/></svg></li>
-        <li><b>Build</b><p>Build in HTML, CSS and React, matching the design down to spacing and type.</p>
+        <li><b>Build</b><p>Build the front end in React and Next.js, and the REST or GraphQL API and database behind it.</p>
           <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26"/><path class="a type" style="--d:.1s" d="M10 8h3"/><path class="a type" style="--d:.2s" d="M15 8h5"/><path class="a type" style="--d:.3s" d="M12 12h3"/><path class="a type" style="--d:.4s" d="M17 12h4"/><path class="a type" style="--d:.5s" d="M12 16h7"/><path class="a type" style="--d:.6s" d="M14 20h2"/><path class="a type" style="--d:.7s" d="M18 20h3"/><path class="a type" style="--d:.8s" d="M10 24h3"/><rect class="f caret" x="14" y="22" width="1" height="4"/></svg></li>
-        <li><b>Test &amp; launch</b><p>Check across devices and browsers, tune SEO and load speed, deploy, then maintain.</p>
+        <li><b>Test &amp; launch</b><p>Test across devices and browsers, tune SEO and load speed, ship through Docker and CI/CD to the cloud, then maintain.</p>
           <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><g class="a wide"><rect x="3" y="8" width="26" height="16"/><path d="M3 11h26"/><rect class="f" x="6" y="14" width="8" height="4"/><path d="M6 21h8M17 14h9M17 17h9M17 20h6"/></g><g class="a narrow"><rect x="11" y="5" width="10" height="20"/><path d="M15 8h2"/><rect class="f" x="13" y="10" width="6" height="4"/><path d="M13 17h6M13 20h6M13 23h4"/></g><path class="a draw" style="--d:1.35s" pathLength="1" d="M23 28l2 2 4-5"/></svg></li>
       </ol>
       <dl class="tools">
         <div><dt class="k">Design</dt><dd>Figma, Photoshop, Illustrator</dd></div>
-        <div><dt class="k">Front-end</dt><dd>HTML5, CSS3, JavaScript, React</dd></div>
+        <div><dt class="k">Front-end</dt><dd>HTML5, CSS3, JavaScript, React, Next.js</dd></div>
+        <div><dt class="k">Back-end</dt><dd>Node.js &amp; Express, Python (Django, FastAPI, Flask), Java &amp; Spring, C# &amp; .NET</dd></div>
+        <div><dt class="k">APIs</dt><dd>REST, GraphQL, Next.js API routes &amp; server actions</dd></div>
+        <div><dt class="k">Databases</dt><dd>PostgreSQL, MySQL &amp; MariaDB, MongoDB, SQLite, Firebase, Supabase</dd></div>
+        <div><dt class="k">DevOps</dt><dd>Docker, Kubernetes, Terraform, GitHub Actions, Git</dd></div>
+        <div><dt class="k">Cloud &amp; hosting</dt><dd>AWS, Google Cloud, Azure, Linux &amp; Nginx, Vercel, Netlify</dd></div>
         <div><dt class="k">Motion</dt><dd>After Effects</dd></div>
-        <div><dt class="k">Workflow</dt><dd>Git &amp; GitHub</dd></div>
       </dl>
     </div>
   </section>

@@ -58,6 +58,8 @@ a{color:inherit}
 .name .ln>span{display:inline-block}
 .name .ln:last-child{text-align:right;margin-top:-.04em}
 .name em{font:italic 300 1.06em/1 var(--serif);text-transform:none;letter-spacing:-.045em;font-stretch:normal;color:var(--green);padding-right:.04em}
+.name.flex .ln:first-child{font-size:calc(var(--fit)*1em);touch-action:pan-y}
+.name .ch{display:inline-block}
 .lede{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px var(--gut);margin-top:clamp(36px,6vw,80px);padding-bottom:clamp(56px,9vw,120px)}
 .lede p{grid-column:1/span 7;grid-row:1/span 2;font-size:clamp(1.45rem,2.55vw,2.35rem);line-height:1.18;font-weight:340;letter-spacing:-.012em;text-wrap:pretty}
 .lede p i{font-weight:300;color:var(--fg-2)}
@@ -279,7 +281,7 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 <main>
   <section class="hero wrap" aria-labelledby="name">
     <div class="row k"><span>Web designer &amp; front-end developer</span><span>Zagreb, Croatia</span></div>
-    <h1 class="name" id="name"><span class="ln"><span>Antonio</span></span><span class="ln"><span><em>Gilja</em></span></span></h1>
+    <h1 class="name" id="name" aria-label="Antonio Gilja"><span class="ln"><span>Antonio</span></span><span class="ln"><span><em>Gilja</em></span></span></h1>
     <div class="lede">
       <p>I design websites for small and medium-sized businesses in Figma and build them in HTML, CSS and React. <i>On the side, I make personal visual projects.</i></p>
       <figure class="code-card" aria-label="Code sample">
@@ -567,6 +569,68 @@ document.querySelectorAll('.viewer').forEach(v=>{
     if(hasM)swap(m,b.dataset.m,site+' '+b.dataset.n+', mobile design');
   }));
 });
+
+/* name: letters of "Antonio" trade width around the pointer on Archivo's wdth axis.
+   Each frame solves for one shared offset so the word's total length never changes. */
+if(!reduce)(async()=>{
+  const h1=document.querySelector('.name'),line=h1.querySelector('.ln'),word=line.firstElementChild;
+  const MIN=62,MAX=125,REST=110,AMP=-70,SIG=.62,N=22;
+  const clamp=w=>w<MIN?MIN:w>MAX?MAX:w;
+  const wght=w=>w<REST?850-(REST-w)/(REST-MIN)*450:850+(w-REST)/(MAX-REST)*50;
+  const fvs=w=>`'wdth' ${w.toFixed(2)}, 'wght' ${wght(w).toFixed(1)}`;
+  await document.fonts.load('850 1em Archivo',word.textContent);
+  if(document.readyState!=='complete')await new Promise(r=>addEventListener('load',r,{once:true}));
+
+  /* measure every letter across the axis once, in em */
+  let fs=parseFloat(getComputedStyle(word).fontSize);
+  const W0=word.getBoundingClientRect().width/fs;
+  const chars=[...word.textContent].map(c=>{const s=document.createElement('span');s.className='ch';s.textContent=c;return s});
+  word.replaceChildren(...chars);
+  const table=chars.map(()=>[]);
+  for(let k=0;k<N;k++){const w=MIN+(MAX-MIN)*k/(N-1);
+    chars.forEach(c=>c.style.fontVariationSettings=fvs(w));
+    chars.forEach((c,i)=>table[i].push(c.getBoundingClientRect().width/fs))}
+  const width=(i,w)=>{const x=(w-MIN)/(MAX-MIN)*(N-1),k=Math.min(N-2,x|0);return table[i][k]+(table[i][k+1]-table[i][k])*(x-k)};
+  const rest=chars.map((_,i)=>width(i,REST)),total=rest.reduce((a,b)=>a+b);
+  const mid=rest.map((r,i)=>rest.slice(0,i).reduce((a,b)=>a+b,0)+r/2);
+  chars.forEach(c=>c.style.fontVariationSettings=fvs(REST));
+  h1.style.setProperty('--fit',W0/total);h1.classList.add('flex');
+  fs=parseFloat(getComputedStyle(word).fontSize);
+  addEventListener('resize',()=>fs=parseFloat(getComputedStyle(word).fontSize));
+
+  const solve=(p,s)=>{
+    const d=mid.map(m=>s*AMP*Math.exp(-(((m-p)/SIG)**2)));
+    let lo=MIN-Math.abs(AMP),hi=MAX+Math.abs(AMP);
+    for(let n=0;n<24;n++){const c=(lo+hi)/2;let sum=0;
+      for(let i=0;i<d.length;i++)sum+=width(i,clamp(c+d[i]));
+      if(sum<total)lo=c;else hi=c}
+    return d.map(v=>clamp((lo+hi)/2+v))};
+
+  let p=0,s=0,pt=0,st=0,raf=0,intro=null,x=0,y=0,mouse=false;
+  const aim=()=>{const r=line.getBoundingClientRect();
+    const dy=Math.max(0,Math.abs(y-(r.top+r.bottom)/2)-r.height/2);
+    pt=(x-r.left)/fs;st=Math.max(0,1-dy/(r.height*.6))};
+  const frame=()=>{
+    if(intro){const t=(performance.now()-intro)/1700;
+      if(t>=1){intro=null;st=0}else{pt=-SIG+(total+2*SIG)*t;st=Math.sin(Math.PI*t)}}
+    p+=(pt-p)*.16;s+=(st-s)*.1;
+    const w=solve(p,s);chars.forEach((c,i)=>c.style.fontVariationSettings=fvs(w[i]));
+    if(intro||st>0||s>.002)raf=requestAnimationFrame(frame);
+    else{raf=0;s=0;chars.forEach(c=>c.style.fontVariationSettings=fvs(REST))}};
+  const wake=()=>{if(!raf)raf=requestAnimationFrame(frame)};
+  const track=e=>{intro=null;x=e.clientX;y=e.clientY;mouse=e.pointerType==='mouse';aim();wake()};
+  const off=()=>{intro=null;st=0;wake()};
+  addEventListener('pointermove',track,{passive:true});
+  addEventListener('pointerdown',track,{passive:true});
+  addEventListener('pointerup',e=>{if(e.pointerType!=='mouse')off()});
+  addEventListener('pointercancel',off);
+  addEventListener('blur',off);
+  document.documentElement.addEventListener('pointerleave',off);
+  addEventListener('scroll',()=>{if(mouse&&!intro){aim();wake()}},{passive:true});
+
+  /* one pass across the word once the preloader is gone, so visitors see it move */
+  setTimeout(()=>{if(!raf&&line.getBoundingClientRect().bottom>0){intro=performance.now();p=-SIG;wake()}},500);
+})();
 
 /* copy email */
 document.getElementById('copy').addEventListener('click',e=>{

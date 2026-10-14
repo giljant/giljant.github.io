@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Antonio Gilja | Web designer &amp; front-end developer, Zagreb</title>
-<meta name="description" content="Antonio Gilja, web designer and front-end developer in Zagreb. Selected websites and personal visual concepts exploring brand identity, illustration, packaging and editorial design.">
+<meta name="description" content="Antonio Gilja, web designer and front-end developer in Zagreb. How I work, personal visual concepts in brand identity, illustration, packaging and editorial design, and website proposals.">
 <meta name="theme-color" content="#0a0b0a">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230a0b0a'/><text x='32' y='46' text-anchor='middle' font-family='Georgia,serif' font-size='46' fill='%233ee07a'>g</text></svg>">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://giljant.github.io/">
 <meta property="og:title" content="Antonio Gilja | Web designer &amp; front-end developer">
-<meta property="og:description" content="Selected websites and personal visual concepts. Web design, front-end development and visual exploration from Zagreb.">
+<meta property="og:description" content="Process, personal visual concepts and website proposals. Web design, front-end development and visual exploration from Zagreb.">
 <meta property="og:image" content="https://giljant.github.io/img/ltg-home-desktop.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,20 +89,8 @@ a{color:inherit}
 .code-card .s5{color:#ffffff}
 .code-card .s6{color:#ffff00}
 
-/* index */
-.index{padding-bottom:clamp(64px,10vw,140px)}
-.index header{display:flex;justify-content:space-between;align-items:end;padding-bottom:14px;border-bottom:1px solid var(--fg)}
-.index h2{font:inherit}
-.rows a{display:grid;grid-template-columns:4.5rem minmax(0,1.5fr) minmax(0,1fr) 4rem 2rem;align-items:baseline;gap:16px;padding:clamp(18px,2.4vw,30px) 0;border-bottom:1px solid var(--rule);text-decoration:none;position:relative}
-.rows .n{color:var(--muted)}
-.rows .t{font:800 clamp(2rem,4.6vw,4.2rem)/.9 var(--sans);font-stretch:125%;letter-spacing:-.03em;text-transform:uppercase;transition:transform .5s var(--ease),color .3s}
-.rows .d{color:var(--fg-2);font-size:1.05rem;line-height:1.35}
-.rows .y{color:var(--muted);font-variant-numeric:tabular-nums}
-.rows .arr{font-family:var(--sans);justify-self:end;transition:transform .5s var(--ease)}
-.rows a:hover .t{transform:translateX(.18em);color:var(--green)}
-.rows a:hover .arr{transform:translateY(5px);color:var(--green)}
-
-/* case */
+/* proposals */
+.proposals{border-top:1px solid var(--rule);padding-top:clamp(64px,9vw,120px)}
 .case{border-top:1px solid var(--rule);padding-top:clamp(56px,8vw,110px)}
 .case-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px var(--gut);padding-bottom:clamp(40px,6vw,72px)}
 .case-no{grid-column:1/span 2;font:850 clamp(4rem,9vw,8.5rem)/.78 var(--sans);font-stretch:125%;color:var(--green);letter-spacing:-.05em}
@@ -151,12 +139,12 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 
 /* concepts */
 .concepts{border-top:1px solid var(--rule);padding-block:clamp(64px,9vw,120px)}
-.concept-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px var(--gut);align-items:end;margin-bottom:clamp(36px,5vw,64px)}
-.concept-head .k{color:var(--green);margin-bottom:22px}
-.concept-head h2{font:850 clamp(2.8rem,6.4vw,6rem)/.88 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.04em}
-.concept-head h2 em{display:block;font-style:normal;color:var(--green)}
-.concept-intro{max-width:40rem;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.4;color:var(--fg-2)}
-.concept-intro .concept-note{font:400 .85rem/1.65 var(--sans);margin-top:20px;color:var(--fg-2)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px var(--gut);align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.sec-head .k{color:var(--green);margin-bottom:22px}
+.sec-head h2{font:850 clamp(2.8rem,6.4vw,6rem)/.88 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:-.04em}
+.sec-head h2 em{display:block;font-style:normal;color:var(--green)}
+.sec-intro{max-width:40rem;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.4;color:var(--fg-2)}
+.sec-intro .concept-note{font:400 .85rem/1.65 var(--sans);margin-top:20px;color:var(--fg-2)}
 .concept-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(40px,5vw,68px) var(--gut)}
 .concept-card{min-width:0;scroll-margin-top:88px}
 .concept-art{display:block;position:relative;background:var(--bg-2);text-decoration:none}
@@ -166,10 +154,8 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 .concept-card h3{font:800 clamp(1.8rem,3.2vw,2.8rem)/1 var(--sans);font-stretch:125%;letter-spacing:-.035em;margin-top:12px}
 .concept-card p{color:var(--fg-2);font-size:1.08rem;line-height:1.45;max-width:48ch;margin-top:12px;text-wrap:pretty}
 .concept-skills{display:flex;flex-wrap:wrap;gap:8px 18px;border-top:1px solid var(--rule);padding-top:14px;margin-top:20px;font:500 .75rem/1.4 var(--sans);color:var(--fg-2)}
-.concept-jump{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:26px;color:var(--fg-2)}
-.concept-jump a{color:var(--green)}
 @media (max-width:700px){
-  .concept-head,.concept-grid{grid-template-columns:minmax(0,1fr)}
+  .sec-head,.concept-grid{grid-template-columns:minmax(0,1fr)}
   .concept-meta{font-size:.65rem;letter-spacing:.1em}
   .mast nav{gap:12px;font-size:.65rem;letter-spacing:.08em}
 }
@@ -250,8 +236,6 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
   .did h3,.did ol{grid-column:1/-1}
   .process-head,.steps,.tools{grid-column:1/-1}
   .process-head{grid-row:auto;position:static}
-  .rows a{grid-template-columns:3rem minmax(0,1fr) 3.5rem 1.5rem}
-  .rows .d{grid-column:2/-1;grid-row:2}
 }
 @media (max-width:700px){
   .hero .row{flex-direction:column;gap:4px}
@@ -306,7 +290,7 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
 <header class="mast">
   <div class="wrap">
     <a class="home k" href="#top">A. Gilja</a>
-    <nav class="k" aria-label="Sections"><a href="#work">Work</a><a href="#concepts">Concepts</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    <nav class="k" aria-label="Sections"><a href="#process">Process</a><a href="#concepts">Concepts</a><a href="#proposals">Proposals</a><a href="#contact">Contact</a></nav>
   </div>
 </header>
 
@@ -340,128 +324,41 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
     </div>
   </section>
 
-  <section class="index wrap" id="work" aria-labelledby="work-title">
-    <header class="k"><h2 id="work-title">Selected websites</h2><span>2 projects</span></header>
-    <ol class="rows">
-      <li><a href="#ltg"><span class="n k">01</span><span class="t">LTG</span><span class="d">General contractor, website design for desktop and mobile</span><span class="y k">2026</span><span class="arr" aria-hidden="true">↓</span></a></li>
-      <li><a href="#stem"><span class="n k">02</span><span class="t">STEM-online</span><span class="d">Tutoring, a landing page system for local search</span><span class="y k">2026</span><span class="arr" aria-hidden="true">↓</span></a></li>
-    </ol>
-    <p class="concept-jump"><span>Branding, illustration, packaging &amp; more.</span><a class="u" href="#concepts">Explore 6 personal concepts <span aria-hidden="true">↓</span></a></p>
+  <section class="process" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="process-head">
+        <p class="k">Process</p>
+        <h2 id="process-title">From brief <em>to</em> launch</h2>
+      </div>
+      <ol class="steps">
+        <li><b>Brief</b><p>Talk with the client about the business, the audience and what the site has to achieve.</p>
+          <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 3h12l6 6v20H7zM19 3v6h6"/><path class="a draw" style="--d:.15s" pathLength="1" d="M10 15q1.5-3 3 0t3 0 3 0 3 0"/><path class="a draw" style="--d:.55s" pathLength="1" d="M10 20q1.5-3 3 0t3 0 3 0 3 0"/><path class="a draw" style="--d:.95s" pathLength="1" d="M10 25q1.5-3 3 0t3 0"/></svg></li>
+        <li><b>Structure</b><p>Turn their raw content into a sitemap and a clear order of sections for each page.</p>
+          <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26"/><g class="dash"><path class="a drop" style="--d:.1s" d="M10 7h12"/><rect class="a drop" style="--d:.3s" x="10" y="10" width="12" height="8"/><rect class="a drop" style="--d:.5s" x="10" y="21" width="5" height="5"/><rect class="a drop" style="--d:.7s" x="17" y="21" width="5" height="5"/></g></svg></li>
+        <li><b>Design</b><p>Design desktop and mobile in Figma, present it, and iterate through feedback rounds.</p>
+          <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26"/><rect class="f a grow" style="--d:.1s" x="10" y="6" width="7" height="2"/><rect class="f a grow" style="--d:.3s" x="10" y="10" width="12" height="8"/><circle class="hole a pop" style="--d:.65s" cx="18" cy="13" r="1.5"/><path class="a grow" style="--d:.5s" d="M10 22h5"/><path class="a grow" style="--d:.6s" d="M10 25h5"/><path class="a grow" style="--d:.6s" d="M17 22h5"/><path class="a grow" style="--d:.7s" d="M17 25h3"/></svg></li>
+        <li><b>Build</b><p>Build in HTML, CSS and React, matching the design down to spacing and type.</p>
+          <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26"/><path class="a type" style="--d:.1s" d="M10 8h3"/><path class="a type" style="--d:.2s" d="M15 8h5"/><path class="a type" style="--d:.3s" d="M12 12h3"/><path class="a type" style="--d:.4s" d="M17 12h4"/><path class="a type" style="--d:.5s" d="M12 16h7"/><path class="a type" style="--d:.6s" d="M14 20h2"/><path class="a type" style="--d:.7s" d="M18 20h3"/><path class="a type" style="--d:.8s" d="M10 24h3"/><rect class="f caret" x="14" y="22" width="1" height="4"/></svg></li>
+        <li><b>Test &amp; launch</b><p>Check across devices and browsers, tune SEO and load speed, deploy, then maintain.</p>
+          <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><g class="a wide"><rect x="3" y="8" width="26" height="16"/><path d="M3 11h26"/><rect class="f" x="6" y="14" width="8" height="4"/><path d="M6 21h8M17 14h9M17 17h9M17 20h6"/></g><g class="a narrow"><rect x="11" y="5" width="10" height="20"/><path d="M15 8h2"/><rect class="f" x="13" y="10" width="6" height="4"/><path d="M13 17h6M13 20h6M13 23h4"/></g><path class="a draw" style="--d:1.35s" pathLength="1" d="M23 28l2 2 4-5"/></svg></li>
+      </ol>
+      <dl class="tools">
+        <div><dt class="k">Design</dt><dd>Figma, Photoshop, Illustrator</dd></div>
+        <div><dt class="k">Front-end</dt><dd>HTML5, CSS3, JavaScript, React</dd></div>
+        <div><dt class="k">Motion</dt><dd>After Effects</dd></div>
+        <div><dt class="k">Workflow</dt><dd>Git &amp; GitHub</dd></div>
+      </dl>
+    </div>
   </section>
-
-  <article class="case" id="ltg" aria-labelledby="ltg-title">
-    <div class="wrap case-head">
-      <div class="case-no" aria-hidden="true">01</div>
-      <div class="case-title">
-        <p class="k"><span>Case study</span><span>2026</span><span>Construction</span></p>
-        <h2 id="ltg-title">LTG <em>a general contractor, built to earn quote requests</em></h2>
-      </div>
-      <p class="brief">LTG is a Croatian construction company with more than 30 years of work, from shell construction and facades to turnkey handover. They wanted one site that shows the full range of what they do, proves they can be trusted with large buildings, and turns visitors into quote requests.</p>
-      <dl class="specs">
-        <div><dt class="k">Role</dt><dd>Website design</dd></div>
-        <div><dt class="k">Tool</dt><dd>Figma</dd></div>
-        <div><dt class="k">Scope</dt><dd>Desktop + mobile</dd></div>
-        <div><dt class="k">Shown</dt><dd>Homepage, Facade services</dd></div>
-      </dl>
-    </div>
-
-    <div class="plate viewer">
-      <div class="wrap">
-        <div class="plate-bar">
-          <div class="tabs" role="group" aria-label="LTG pages">
-            <button type="button" aria-pressed="true" data-d="img/ltg-home-desktop.jpg" data-m="img/ltg-home-mobile.jpg" data-n="Homepage">Homepage</button>
-            <button type="button" aria-pressed="false" data-d="img/ltg-facades-desktop.jpg" data-m="img/ltg-facades-mobile.jpg" data-n="Facade services">Facade services</button>
-          </div>
-          <span class="hint k">Scroll inside the screens</span>
-          <a class="open u js-open" href="img/ltg-home-desktop.jpg" target="_blank" rel="noopener">Open full page ↗</a>
-        </div>
-        <div class="stage">
-          <figure class="desk">
-            <div class="screen" tabindex="0" aria-label="Desktop design, scrollable"><img class="js-d" src="img/ltg-home-desktop.jpg" alt="LTG Homepage, desktop design" loading="lazy" width="1200" height="3753"></div>
-            <div class="meter" aria-hidden="true"><i></i></div>
-            <figcaption><b>Desktop</b><span class="js-cap">Homepage · 1200 px</span></figcaption>
-          </figure>
-          <figure class="mob">
-            <div class="device js-phone"><div class="screen" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/ltg-home-mobile.jpg" alt="LTG Homepage, mobile design" loading="lazy" width="472" height="3682"></div></div>
-            <figcaption class="js-mcap"><b>Mobile</b><span>Designed separately</span></figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-
-    <div class="wrap did">
-      <h3 class="k">What I did</h3>
-      <ol>
-        <li>Built the homepage around their promise of one contractor and one point of responsibility, with a dusk site photo and three proof points right in the hero.</li>
-        <li>Sorted six trades into photo cards so each service leads to its own page.</li>
-        <li>Designed the facade page as the template for every service page: a comparison of ETICS, ventilated and aluminium-glass systems, reasons to choose LTG, references, FAQ and a short quote form.</li>
-        <li>Took the palette from the job site itself: charcoal, concrete grey and a rust orange used only for calls to action.</li>
-        <li>Laid out mobile separately: services in a two-column grid, projects stacked, a one-tap menu and the same form at the end of every page.</li>
-      </ol>
-    </div>
-  </article>
-
-  <article class="case" id="stem" aria-labelledby="stem-title">
-    <div class="wrap case-head">
-      <div class="case-no" aria-hidden="true">02</div>
-      <div class="case-title">
-        <p class="k"><span>Case study</span><span>2026</span><span>Education</span></p>
-        <h2 id="stem-title">STEM-online <em>tutoring pages that answer local searches</em></h2>
-      </div>
-      <p class="brief">STEM-online connects school and university students with tutors from Zagreb’s top technical faculties, in person or online. They needed pages that answer local searches like “maths tutoring in Zagreb” and make booking a tutor take as few steps as possible.</p>
-      <dl class="specs">
-        <div><dt class="k">Role</dt><dd>Website design</dd></div>
-        <div><dt class="k">Tool</dt><dd>Figma</dd></div>
-        <div><dt class="k">Scope</dt><dd>Landing page system</dd></div>
-        <div><dt class="k">Shown</dt><dd>Maths tutoring, Zagreb; Tutoring across Croatia</dd></div>
-      </dl>
-    </div>
-
-    <div class="plate viewer">
-      <div class="wrap">
-        <div class="plate-bar">
-          <div class="tabs" role="group" aria-label="STEM-online pages">
-            <button type="button" aria-pressed="true" data-d="img/stem-zagreb-desktop.jpg" data-m="img/stem-zagreb-mobile.jpg" data-n="Maths tutoring, Zagreb">Maths tutoring, Zagreb</button>
-            <button type="button" aria-pressed="false" data-d="img/stem-croatia-desktop.jpg" data-m="" data-n="Tutoring across Croatia">Tutoring across Croatia</button>
-          </div>
-          <span class="hint k">Scroll inside the screens</span>
-          <a class="open u js-open" href="img/stem-zagreb-desktop.jpg" target="_blank" rel="noopener">Open full page ↗</a>
-        </div>
-        <div class="stage">
-          <figure class="desk">
-            <div class="screen" tabindex="0" aria-label="Desktop design, scrollable"><img class="js-d" src="img/stem-zagreb-desktop.jpg" alt="STEM-online Maths tutoring, Zagreb, desktop design" loading="lazy" width="1200" height="2096"></div>
-            <div class="meter" aria-hidden="true"><i></i></div>
-            <figcaption><b>Desktop</b><span class="js-cap">Maths tutoring, Zagreb · 1200 px</span></figcaption>
-          </figure>
-          <figure class="mob">
-            <div class="device js-phone"><div class="screen" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/stem-zagreb-mobile.jpg" alt="STEM-online Maths tutoring, Zagreb, mobile design" loading="lazy" width="436" height="2236"></div></div>
-            <div class="nomob js-none" hidden>Desktop design only for this page</div>
-            <figcaption class="js-mcap"><b>Mobile</b><span>Two-column tutor grid</span></figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-
-    <div class="wrap did">
-      <h3 class="k">What I did</h3>
-      <ol>
-        <li>Designed one landing page template that works for every subject and city combination, with breadcrumbs that mirror the URL path for search engines.</li>
-        <li>Gave each city a local hero: the Zagreb coat of arms surrounded by maths symbols, in the brand’s violet on deep navy.</li>
-        <li>Designed tutor cards with faculty and neighbourhood tags, so a student can judge a match at a glance.</li>
-        <li>Built the Croatia overview page around a city picker and a four-step booking explainer for in-person and online lessons.</li>
-        <li>Kept the tutor grid at two columns on mobile and moved the neighbourhood map below the booking button.</li>
-      </ol>
-    </div>
-  </article>
 
   <section class="concepts" id="concepts" aria-labelledby="concepts-title">
     <div class="wrap">
-      <header class="concept-head">
+      <header class="sec-head">
         <div>
           <p class="k">Personal projects / 6 visual studies</p>
           <h2 id="concepts-title">Beyond the <em>browser.</em></h2>
         </div>
-        <div class="concept-intro">
+        <div class="sec-intro">
           <p>My personal concept collection explores how an idea takes shape through identity, illustration, composition and type. Six different disciplines, with the design focus of each study below.</p>
           <p class="concept-note">Personal concept studies with AI-generated imagery, not client commissions.</p>
         </div>
@@ -525,31 +422,117 @@ figcaption b{font:600 .7rem/1.6 var(--sans);font-stretch:118%;letter-spacing:.16
     </div>
   </section>
 
-  <section class="process" id="process" aria-labelledby="process-title">
-    <div class="wrap">
-      <div class="process-head">
-        <p class="k">Process</p>
-        <h2 id="process-title">From brief <em>to</em> launch</h2>
+  <section class="proposals" id="proposals" aria-labelledby="proposals-title">
+    <header class="wrap sec-head">
+      <div>
+        <p class="k">Website proposals / Figma</p>
+        <h2 id="proposals-title">Web <em>designs.</em></h2>
       </div>
-      <ol class="steps">
-        <li><b>Brief</b><p>Talk with the client about the business, the audience and what the site has to achieve.</p>
-          <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 3h12l6 6v20H7zM19 3v6h6"/><path class="a draw" style="--d:.15s" pathLength="1" d="M10 15q1.5-3 3 0t3 0 3 0 3 0"/><path class="a draw" style="--d:.55s" pathLength="1" d="M10 20q1.5-3 3 0t3 0 3 0 3 0"/><path class="a draw" style="--d:.95s" pathLength="1" d="M10 25q1.5-3 3 0t3 0"/></svg></li>
-        <li><b>Structure</b><p>Turn their raw content into a sitemap and a clear order of sections for each page.</p>
-          <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26"/><g class="dash"><path class="a drop" style="--d:.1s" d="M10 7h12"/><rect class="a drop" style="--d:.3s" x="10" y="10" width="12" height="8"/><rect class="a drop" style="--d:.5s" x="10" y="21" width="5" height="5"/><rect class="a drop" style="--d:.7s" x="17" y="21" width="5" height="5"/></g></svg></li>
-        <li><b>Design</b><p>Design desktop and mobile in Figma, present it, and iterate through feedback rounds.</p>
-          <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26"/><rect class="f a grow" style="--d:.1s" x="10" y="6" width="7" height="2"/><rect class="f a grow" style="--d:.3s" x="10" y="10" width="12" height="8"/><circle class="hole a pop" style="--d:.65s" cx="18" cy="13" r="1.5"/><path class="a grow" style="--d:.5s" d="M10 22h5"/><path class="a grow" style="--d:.6s" d="M10 25h5"/><path class="a grow" style="--d:.6s" d="M17 22h5"/><path class="a grow" style="--d:.7s" d="M17 25h3"/></svg></li>
-        <li><b>Build</b><p>Build in HTML, CSS and React, matching the design down to spacing and type.</p>
-          <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26"/><path class="a type" style="--d:.1s" d="M10 8h3"/><path class="a type" style="--d:.2s" d="M15 8h5"/><path class="a type" style="--d:.3s" d="M12 12h3"/><path class="a type" style="--d:.4s" d="M17 12h4"/><path class="a type" style="--d:.5s" d="M12 16h7"/><path class="a type" style="--d:.6s" d="M14 20h2"/><path class="a type" style="--d:.7s" d="M18 20h3"/><path class="a type" style="--d:.8s" d="M10 24h3"/><rect class="f caret" x="14" y="22" width="1" height="4"/></svg></li>
-        <li><b>Test &amp; launch</b><p>Check across devices and browsers, tune SEO and load speed, deploy, then maintain.</p>
-          <svg class="pic" viewBox="0 0 32 32" aria-hidden="true"><g class="a wide"><rect x="3" y="8" width="26" height="16"/><path d="M3 11h26"/><rect class="f" x="6" y="14" width="8" height="4"/><path d="M6 21h8M17 14h9M17 17h9M17 20h6"/></g><g class="a narrow"><rect x="11" y="5" width="10" height="20"/><path d="M15 8h2"/><rect class="f" x="13" y="10" width="6" height="4"/><path d="M13 17h6M13 20h6M13 23h4"/></g><path class="a draw" style="--d:1.35s" pathLength="1" d="M23 28l2 2 4-5"/></svg></li>
-      </ol>
-      <dl class="tools">
-        <div><dt class="k">Design</dt><dd>Figma, Photoshop, Illustrator</dd></div>
-        <div><dt class="k">Front-end</dt><dd>HTML5, CSS3, JavaScript, React</dd></div>
-        <div><dt class="k">Motion</dt><dd>After Effects</dd></div>
-        <div><dt class="k">Workflow</dt><dd>Git &amp; GitHub</dd></div>
+      <div class="sec-intro">
+        <p>Two website designs I made for Croatian companies. Neither is the company’s live site. They show how I structure pages, plan for search and lay out mobile on its own terms.</p>
+      </div>
+    </header>
+
+  <article class="case" id="ltg" aria-labelledby="ltg-title">
+    <div class="wrap case-head">
+      <div class="case-no" aria-hidden="true">01</div>
+      <div class="case-title">
+        <p class="k"><span>Design proposal</span><span>2026</span><span>Construction</span></p>
+        <h2 id="ltg-title">LTG <em>a website proposal for a general contractor</em></h2>
+      </div>
+      <p class="brief">LTG is a Croatian construction company with more than 30 years of work, from shell construction and facades to turnkey handover. I designed a proposal for their website: one site that shows the full range of what they do, proves they can be trusted with large buildings and turns visitors into quote requests. It is not their live site.</p>
+      <dl class="specs">
+        <div><dt class="k">Role</dt><dd>Website design</dd></div>
+        <div><dt class="k">Tool</dt><dd>Figma</dd></div>
+        <div><dt class="k">Scope</dt><dd>Desktop + mobile</dd></div>
+        <div><dt class="k">Shown</dt><dd>Homepage, Facade services</dd></div>
       </dl>
     </div>
+
+    <div class="plate viewer">
+      <div class="wrap">
+        <div class="plate-bar">
+          <div class="tabs" role="group" aria-label="LTG pages">
+            <button type="button" aria-pressed="true" data-d="img/ltg-home-desktop.jpg" data-m="img/ltg-home-mobile.jpg" data-n="Homepage">Homepage</button>
+            <button type="button" aria-pressed="false" data-d="img/ltg-facades-desktop.jpg" data-m="img/ltg-facades-mobile.jpg" data-n="Facade services">Facade services</button>
+          </div>
+          <span class="hint k">Scroll inside the screens</span>
+          <a class="open u js-open" href="img/ltg-home-desktop.jpg" target="_blank" rel="noopener">Open full page ↗</a>
+        </div>
+        <div class="stage">
+          <figure class="desk">
+            <div class="screen" tabindex="0" aria-label="Desktop design, scrollable"><img class="js-d" src="img/ltg-home-desktop.jpg" alt="LTG Homepage, desktop design" loading="lazy" width="1200" height="3753"></div>
+            <div class="meter" aria-hidden="true"><i></i></div>
+            <figcaption><b>Desktop</b><span class="js-cap">Homepage · 1200 px</span></figcaption>
+          </figure>
+          <figure class="mob">
+            <div class="device js-phone"><div class="screen" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/ltg-home-mobile.jpg" alt="LTG Homepage, mobile design" loading="lazy" width="472" height="3682"></div></div>
+            <figcaption class="js-mcap"><b>Mobile</b><span>Designed separately</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap did">
+      <h3 class="k">What I did</h3>
+      <ol>
+        <li>Built the homepage around their promise of one contractor and one point of responsibility, with a dusk site photo and three proof points right in the hero.</li>
+        <li>Designed the facade page as the template for every service page: a comparison of ETICS, ventilated and aluminium-glass systems, reasons to choose LTG, references, FAQ and a short quote form.</li>
+        <li>Took the palette from the job site itself: charcoal, concrete grey and a rust orange used only for calls to action.</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="case" id="stem" aria-labelledby="stem-title">
+    <div class="wrap case-head">
+      <div class="case-no" aria-hidden="true">02</div>
+      <div class="case-title">
+        <p class="k"><span>Design proposal</span><span>2026</span><span>Education</span></p>
+        <h2 id="stem-title">STEM-online <em>a proposal for tutoring pages built for local search</em></h2>
+      </div>
+      <p class="brief">STEM-online connects school and university students with tutors from Zagreb’s top technical faculties, in person or online. My proposal is a set of pages that answer local searches like “maths tutoring in Zagreb” and make booking a tutor take as few steps as possible. It is not their live site.</p>
+      <dl class="specs">
+        <div><dt class="k">Role</dt><dd>Website design</dd></div>
+        <div><dt class="k">Tool</dt><dd>Figma</dd></div>
+        <div><dt class="k">Scope</dt><dd>Landing page system</dd></div>
+        <div><dt class="k">Shown</dt><dd>Maths tutoring, Zagreb; Tutoring across Croatia</dd></div>
+      </dl>
+    </div>
+
+    <div class="plate viewer">
+      <div class="wrap">
+        <div class="plate-bar">
+          <div class="tabs" role="group" aria-label="STEM-online pages">
+            <button type="button" aria-pressed="true" data-d="img/stem-zagreb-desktop.jpg" data-m="img/stem-zagreb-mobile.jpg" data-n="Maths tutoring, Zagreb">Maths tutoring, Zagreb</button>
+            <button type="button" aria-pressed="false" data-d="img/stem-croatia-desktop.jpg" data-m="" data-n="Tutoring across Croatia">Tutoring across Croatia</button>
+          </div>
+          <span class="hint k">Scroll inside the screens</span>
+          <a class="open u js-open" href="img/stem-zagreb-desktop.jpg" target="_blank" rel="noopener">Open full page ↗</a>
+        </div>
+        <div class="stage">
+          <figure class="desk">
+            <div class="screen" tabindex="0" aria-label="Desktop design, scrollable"><img class="js-d" src="img/stem-zagreb-desktop.jpg" alt="STEM-online Maths tutoring, Zagreb, desktop design" loading="lazy" width="1200" height="2096"></div>
+            <div class="meter" aria-hidden="true"><i></i></div>
+            <figcaption><b>Desktop</b><span class="js-cap">Maths tutoring, Zagreb · 1200 px</span></figcaption>
+          </figure>
+          <figure class="mob">
+            <div class="device js-phone"><div class="screen" tabindex="0" aria-label="Mobile design, scrollable"><img class="js-m" src="img/stem-zagreb-mobile.jpg" alt="STEM-online Maths tutoring, Zagreb, mobile design" loading="lazy" width="436" height="2236"></div></div>
+            <div class="nomob js-none" hidden>Desktop design only for this page</div>
+            <figcaption class="js-mcap"><b>Mobile</b><span>Two-column tutor grid</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap did">
+      <h3 class="k">What I did</h3>
+      <ol>
+        <li>Designed one landing page template that works for every subject and city combination, with breadcrumbs that mirror the URL path for search engines.</li>
+        <li>Designed tutor cards with faculty and neighbourhood tags, so a student can judge a match at a glance.</li>
+        <li>Built the Croatia overview page around a city picker and a four-step booking explainer for in-person and online lessons.</li>
+      </ol>
+    </div>
+  </article>
   </section>
 </main>
 
